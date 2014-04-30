@@ -1,0 +1,16 @@
+<!-- SCRIPTS BLOCK -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="<? echo $GLOBALS['staticUrl'];?>js/jquery.cookie.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$('.tp').tooltip()
+</script>
+<script type="text/javascript" src="<? echo $GLOBALS['staticUrl'];?>js/jquery.timeago.js"></script>
+<script type="text/javascript" src="<? echo $GLOBALS['staticUrl'];?>js/wh_table.js"></script>
+<script type="text/javascript">
+	$('.character_field').click(function (e) {
+		e.stopPropagation();
+		CCPEVE.showInfo(1377, $(this).attr('name'));
+	});
+</script>
+<!-- END OF SCRIPTS BLOCK -->

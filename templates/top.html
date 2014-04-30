@@ -1,0 +1,49 @@
+<?echo $GLOBALS['doctype'] ?>
+<html>
+	<?include "templates/head.html";?>
+	<body>
+		<? showLayout();?>
+		<div class="container">
+			<div class="col-md-6">
+				<h4>Top Scouts <small>(This month)</small></h4>
+				<table class="table table-bordered">
+					<thead>
+						<th>Rank</th>
+						<th>Character</th>
+						<th>Wormholes Scanned</th>
+					</thead>
+					<tbody>
+						<? $c=1; foreach($topScoutsMonth as $scout): ?>
+							<tr>
+								<td><? echo $c++; ?></td>
+								<td><span class="character_field" name="<? echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<? echo $scout[2]?>_32.jpg);"><? echo $scout[1]; ?></span></td>
+								<td><? echo $scout[4]; ?></td>
+							</tr>
+						<? endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<h4>Top Scouts <small>(All time)</small></h4>
+				<table class="table table-bordered">
+					<thead>
+						<th>Rank</th>
+						<th>Character</th>
+						<th>Wormholes Scanned</th>
+					</thead>
+					<tbody>
+						<? $c=1; foreach($topScouts as $scout): ?>
+							<tr>
+								<td><? echo $c++; ?></td>
+								<td><span class="character_field" name="<? echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<? echo $scout[2]?>_32.jpg);"><? echo $scout[1]; ?></span></td>
+								<td><? echo $scout[4]; ?></td>
+							</tr>
+						<? endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+		<?include "templates/footer.html";?>
+		<?include "templates/scripts.html";?>
+	</body>
+</html>
+

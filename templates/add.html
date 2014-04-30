@@ -1,0 +1,65 @@
+<div class="modal fade" id="addModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Add new Wormhole</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" action="/api/wh" method="POST" id="addWhForm">
+          <div class="form-group">
+            <label for="wormholeName">Wormhole System Name</label>
+            <input type="text" class="form-control" id="wormholeName" name="wormholeName" placeholder='Enter the "J Number" of the Wormhole'>
+          </div>
+          <div class="form-group">
+            <label for="systemName">Connecting System Name</label>
+            <input type="text" class="form-control" id="systemName" name="systemName" placeholder="Enter the system you found the wormhole in">
+          </div>
+          <div class="form-group">
+            <label for="sites">Sites</label>
+            <textarea placeholder="Paste your scanner output here" class="form-control" rows="5" name="sites" id="sites"></textarea>
+            <p class="help-block">Paste the probe scanner list into this field (Hit CTRL+A, CTRL+C to copy all).</p>
+          </div>
+          <div class="form-group">
+            <label for="sites">Signature ID <small>(optional)</small></label>
+            <input type="text" class="form-control" name="sig" id="sig"></textarea>
+            <p class="help-block">Enter the signature ID from the probe scanner (i.e. QXE-384)</p>
+          </div>
+          <div class="form-group">
+            <label for="sites">Comment</label>
+            <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
+            <p class="help-block">Any additional information (Optional).</p>
+          </div>
+          
+          <button style="display: none;" type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="addHole" onclick="$('#addWhForm').submit()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="sitesModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Thanks for adding <span class="whName"></span></h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+         <label for="sites">Please Report the Sites in the Wormhole you just found:</label>
+         <textarea placeholder="Paste your scanner output here" class="form-control" rows="5" name="sites" id="sites"></textarea>
+          <p class="help-block">Paste the probe scanner list into this field (Hit CTRL+A, CTRL+C to copy all).</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveSites">Submit</button>
+        </div>
+      </div>        
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<?echo $GLOBALS['doctype'] ?>
+<html>
+	<?include "templates/head.html";?>
+	<body>
+		<? showLayout();?>
+    	<div class="container">
+    		<h4>Available Guides:</h4>
+    		<ul>
+    			<? foreach (getGuides() as $guide): ?>
+    				<li><a href="/help/<?echo $guide[0];?>"><? echo $guide[1];?></a></li>
+    			<? endforeach ?>
+                    <li style="margin-top: 20px"><a href="/help/fittings">Recommended Fittings</a></li>
+    		</ul>
+            <h5></h5>
+    	</div>
+       	<?include "templates/scripts.html" ?>
+    	<?include "templates/footer.html" ?>
+   	</body>
+</html>

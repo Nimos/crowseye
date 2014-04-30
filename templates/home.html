@@ -1,0 +1,56 @@
+<?echo $GLOBALS['doctype'] ?>
+<html>
+  <?include "templates/head.html";?>
+  <body>
+    <? showLayout() ?>
+    <div class="container">
+      <div class="alert alert-info">Make sure to check out our <a href="/help" class="alert-link">Help Section</a> for awesome guides and ship fittings!</div>
+    	<div class="panel panel-default">
+        <div style="overflow: hidden" class="panel-heading">
+          <h3 class="panel-title pull-left">Recently scanned wormholes</h3>
+          <h1 class="panel-title pull-right panel-title">Filters:
+            <button id="C1" class="btn btn-default btn-success btn-xs filterbutton">C1</button>
+            <button id="C2" class="btn btn-default btn-success btn-xs filterbutton">C2</button>
+            <button id="C3" class="btn btn-default btn-success btn-xs filterbutton">C3</button>
+            <button id="C4" class="btn btn-default btn-success btn-xs filterbutton">C4</button>
+            <button id="C5" class="btn btn-default btn-success btn-xs filterbutton">C5</button>
+            <button id="C6" class="btn btn-default btn-success btn-xs filterbutton">C6</button>   
+          </h1>
+          <h1 class="panel-title pull-right panel-title" style="margin-right: 5px;">Home System:
+            <select id="homeSystem">
+              <option value="Barleguet">Barleguet</option>
+              <option <? if ($home == "Ratillose"): ?>selected="selected"<? endif ?> value="Ratillose">Ratillose</option>
+              <option <? if ($home == "Sendaya"): ?>selected="selected"<? endif ?> value="Sendaya">Sendaya</option>
+              <option <? if ($home == "Chidah"): ?>selected="selected"<? endif ?> value="Chidah">Chidah</option>
+            </select>
+          </h1>
+        </div>
+
+        <div class="panel-body">
+      		<table class="table table-hover">
+      			<thead>
+      				<tr>
+      					<th class="{sorter: 'jumps'}">#Jumps</th>
+      					<th>System</th>
+      					<th>Class</th>
+      					<th>Name</th>
+      					<th>#Combat Sites</th>
+      					<th>Activity</th>
+      					<th>Reported By</th>
+      					<th>Reported</th>
+                <th><? if ($IGB->trusted): ?><a onclick="openAddModal()" id="plusWh" href="#">+</a><? endif ?></th>
+      				</tr>
+      			</thead>
+      			<tbody class="holes">
+      			</tbody>
+      		</table>
+        </div>
+        <div class="panel-footer">
+          <span>Old wormholes will automatically be removed after 24 hours.</span>
+        </div>
+ 		</div>
+  </div>
+    <? include "templates/footer.html"; ?>
+    <? include "templates/scripts.html"; ?>
+  </body>
+</html>

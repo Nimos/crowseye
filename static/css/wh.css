@@ -1,0 +1,175 @@
+.C1_wh,.C2_wh {
+  color: blue;
+}
+.C3_wh {
+  color: #AA1;
+}
+.C4_wh {
+  color: orange;
+}
+.C5_wh,.C6_wh {
+  color: #A00;
+}
+
+span.BlackHole {
+  color: black;
+}
+
+span.Pulsar {
+  color: blue;
+}
+
+span.Wolf-RayetStar {
+  color: orange;
+}
+
+span.Magnetar {
+  color: yellow;
+}
+
+span.RedGiant {
+  color: red;
+}
+
+span.CataclysmicVariable {
+  color: cyan;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.char_header {
+  color: #FFF;
+}
+
+.footer {
+  border-top: 1px dotted #CCC;
+  margin-top: 50px;
+  padding-top: 10px;
+  width: 50%;
+  font-size: 10px;
+  color: #888;
+}
+
+.character_field {
+  padding-left: 66px;
+  background-position: left, 32px 0px;
+  background-repeat: no-repeat;
+  height: 32px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.character_field:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tooltip-inner {
+    white-space:pre;
+    max-width:none;
+}
+
+
+.time_warning {
+  color: #FF0000;
+}
+
+.activity_High {
+  color: #FF0000;
+}
+
+.activity_Medium {
+  color: orange;
+}
+
+.activity_Low {
+  color: #00AA00;
+}
+
+button.loading {
+  background-image: url(/static/gfx/spinner.gif);
+}
+table.sites {
+  border: 1px dotted #ccc;
+  background: transparent;
+}
+tr.info, tr.info:hover {
+  border-left: 1px solid #aaa !important;
+  border-right: 1px solid #aaa !important;
+  border-bottom: 1px solid #aaa !important;
+  padding-left: 10px;
+}
+
+tr.info > td {
+  border-top: none!important;
+  border-bottom: 1px solid #aaa !important;
+}
+
+.comment > span {
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+.comment-head {
+  font-style: italic;
+  font-size: 12px;
+  color: #aaa;
+}
+
+ul.comments {
+  list-style: none;
+}
+
+.comment_author {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  color: black;
+}
+
+textarea.loading {
+
+background-position: center;
+background-repeat: no-repeat;
+background-image: url("/static/gfx/spinner.gif");
+
+}
+
+.loot-form {
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+select.loot-form {
+  border-radius: 0px 4px 4px 0px;
+  width: 40%;
+}
+
+input.loot-form {
+    border-radius: 4px 0px 0px 4px;
+    width: 60%;
+}
+
+html {
+  background-image: url("/static/gfx/logo-large.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  height: 100%;
+  opacity: 40%;
+
+}

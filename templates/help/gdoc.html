@@ -1,0 +1,19 @@
+<?echo $GLOBALS['doctype'] ?>
+<html>
+	<?include "templates/head.html";?>
+	<body>
+		<? showLayout();?>
+    	<div class="container" style="height: 600px">
+        <a href="/help"><span class="glyphicon glyphicon-backward" ></span> Back to Guides Overview</a> 
+        <a style="float: right;" href="<?echo $link ?>"><span class="glyphicon glyphicon-new-window"></span> Open guide in new window</span></a>
+    		<iframe  src="<?echo $link ?>"></iframe>
+    	</div>
+   		
+   		<?include "templates/scripts.html" ?>
+   		<script type="text/javascript">
+ 			function resizeIframe(obj) {
+    			obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  			}
+		</script>
+    	<?include "templates/footer.html" ?>    	
+    </body>

@@ -1,0 +1,23 @@
+<?echo $GLOBALS['doctype'] ?>
+<html>
+	<? include("templates/head.html"); ?>
+	<body>
+		<?showLayout();?>
+
+
+		<div class="jumbotron">
+			<h1>Please enter the site password</h1>
+		    <p>You can find the password in the Crow Vanguard channel MOTD.</p>
+		    <p>
+		    	<form method="post" action="/login">
+		    		<input type="password" name="password"></input>
+		    		<input type="submit"></input>
+		    	</form>
+		    </p>
+		    <? if ($nope): ?><span style="color: red" class="small red warning">Incorrect Password.</span><?endif?>
+		</div>
+		
+		<?include("templates/footer.html");?>
+		<?include("templates/scripts.html");?>
+	</body>
+</html>

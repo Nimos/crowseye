@@ -1,0 +1,44 @@
+<?echo $GLOBALS['doctype'] ?>
+<html>
+	<?include "templates/head.html";?>
+	<body>
+		<? showLayout() ?>
+		<div class="container">
+			<? if ($hasBooks): ?>
+			<div class="col-md-6">
+				<h4>Out of Stock</h4>
+				<table class="table danger table-bordered">
+					<thead>
+						<th>Name</th>
+						<th>Quantity</th>
+					</thead>
+					<tbody>
+						<? echo $outOfStock ?>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<h4>Warning</h4>
+				<table class="table warning table-bordered">
+					<thead>
+						<th>Name</th>
+						<th>Quantity</th>
+					</thead>
+					<tbody>
+						<? echo $warning ?>
+					</tbdy>
+				</table>
+			</div>
+			<? endif ?>
+			<div class="container">
+				<form action="/dojo" method="post">
+					<textarea class="form-control" name="books" placeholder="Paste hangar contents here"></textarea>
+					<input type="submit" />
+				</form>
+			</div>
+		</div>
+		<?include "templates/footer.html";?>
+		<?include "templates/scripts.html";?>
+	</body>
+</html>
+
