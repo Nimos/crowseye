@@ -16,18 +16,23 @@ Nginx
 -----
 
 In your server directive, add the following lines:
-    location /static/ {
-    }
-    location / {
-       rewrite .* index.php last
-    ]
 
+```
+location /static/ {
+}
+location / {
+   rewrite .* index.php last
+}
+```
 
 Apache
 ------
 
 In the project's root directory, create a file called .htaccess with the following contents:
-    RewriteEngine On
-    RewriteBase /
-    RewriteCond %{REQUEST_URI} !^/static/*
-    RewriteRule ^.*$ index.php
+
+```
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} !^/static/*
+RewriteRule ^.*$ index.php
+```
