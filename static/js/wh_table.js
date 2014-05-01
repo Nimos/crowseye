@@ -181,7 +181,7 @@ function addWh (wh) {
 		row+= '	 <td class="jumps">'+wh.jumps+'</td>';
 		row+= '  <td class="system">'+wh.system+'</td>';
 		row+= '  <td class="class '+wh.class+'_wh">'+wh.class+'</td>';
-		row+= '  <td class="wh_name">'+wh.name+'  <a class="tp" data-toggle="tooltip" title="Open on wormhol.es" onclick="event.stopPropagation()" target="_blank" href="http://wormhol.es/'+wh.name+'">  <img src="static/gfx/wormholes.png" width="16" height="16"></a></td>';
+		row+= '  <td class="wh_name">'+wh.name+'  <a class="tp" data-toggle="tooltip" title="Open on wh.pasta.gg" onclick="event.stopPropagation()" target="_blank" href="http://wh.pasta.gg/'+wh.name+'">  <img src="static/gfx/wormholes.png" width="16" height="16"></a></td>';
 		row+= '  <td class="siteNumber">'+siteNumber+'</td>';
 		row+= '  <td class="activity"><span class="tp" data-toggle="tooltip" title="Loading..."><img src="/static/gfx/spinner.gif" /></span></td>';
 		row+= '  <td class="reporter">';
