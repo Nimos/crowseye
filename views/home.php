@@ -58,15 +58,38 @@
         while ($row = $query->fetchArray()) {
         	array_push($topScouts, $row);
         }
-        $query = $db->query('SELECT players._rowid_,players.charname,players.charID,players.corpID,COUNT(*) FROM holes JOIN players ON holes.reporter=players._rowid_ 
-        					 WHERE reported > '.(time()-30*24*3600).'
+    $db = new SQLite3('db/wh.db');
+        $db->busyTimeout(1000);
+        $query = $db->query('SELECT system,COUNT(*) FROM holes
+                   GROUP BY system 
+                   ORDER BY COUNT(*) DESC
+                   LIMIT 10');
+    $topSystems = array();
+        while ($row = $query->fetchArray()) {
+          array_push($topSystems, $row);
+        }
+    $startOfLastMonth = strtotime('first day of last month');
+    $startOfThisMonth = strtotime('first day of this month');
+
+    $query = $db->query('SELECT players._rowid_,players.charname,players.charID,players.corpID,COUNT(*) FROM holes JOIN players ON holes.reporter=players._rowid_ 
+        					 WHERE reported > '.$startOfLastMonth.' AND reported < '.$startOfThisMonth.' 
         					 GROUP BY players.charID 
         					 ORDER BY COUNT(*) DESC, players._rowid_ ASC
         					 LIMIT 10' 
-        					 );
-		$topScoutsMonth = array();
+    );
+		$topScoutsLast = array();
         while ($row = $query->fetchArray()) {
-        	array_push($topScoutsMonth, $row);
+        	array_push($topScoutsLast, $row);
+        }
+    $query = $db->query('SELECT players._rowid_,players.charname,players.charID,players.corpID,COUNT(*) FROM holes JOIN players ON holes.reporter=players._rowid_ 
+                   WHERE reported > '.$startOfThisMonth.' 
+                   GROUP BY players.charID 
+                   ORDER BY COUNT(*) DESC, players._rowid_ ASC
+                   LIMIT 10' 
+    );
+    $topScoutsThis = array();
+        while ($row = $query->fetchArray()) {
+          array_push($topScoutsThis, $row);
         }
 
 		include('templates/top.html');

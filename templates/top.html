@@ -13,7 +13,7 @@
 						<th>Wormholes Scanned</th>
 					</thead>
 					<tbody>
-						<? $c=1; foreach($topScoutsMonth as $scout): ?>
+						<? $c=1; foreach($topScoutsThis as $scout): ?>
 							<tr>
 								<td><? echo $c++; ?></td>
 								<td><span class="character_field" name="<? echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<? echo $scout[2]?>_32.jpg);"><? echo $scout[1]; ?></span></td>
@@ -23,6 +23,27 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="col-md-6">
+				<h4>Top Scouts <small>(Last month)</small></h4>
+				<table class="table table-bordered">
+					<thead>
+						<th>Rank</th>
+						<th>Character</th>
+						<th>Wormholes Scanned</th>
+					</thead>
+					<tbody>
+						<? $c=1; foreach($topScoutsLast as $scout): ?>
+							<tr>
+								<td><? echo $c++; ?></td>
+								<td><span class="character_field" name="<? echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<? echo $scout[2]?>_32.jpg);"><? echo $scout[1]; ?></span></td>
+								<td><? echo $scout[4]; ?></td>
+							</tr>
+						<? endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container">
 			<div class="col-md-6">
 				<h4>Top Scouts <small>(All time)</small></h4>
 				<table class="table table-bordered">
@@ -42,6 +63,26 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="col-md-6">
+				<h4>Top Systems <small>(All time)</small></h4>
+				<table class="table table-bordered">
+					<thead>
+						<th>Rank</th>
+						<th>System</th>
+						<th>Wormholes</th>
+					</thead>
+					<tbody>
+						<? $c=1; foreach($topSystems as $system): ?>
+							<tr>
+								<td><? echo $c++; ?></td>
+								<td><? echo $system[0]; ?></td>
+								<td><? echo $system[1]; ?></td>
+							</tr>
+						<? endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
 		<?include "templates/footer.html";?>
 		<?include "templates/scripts.html";?>
 	</body>
