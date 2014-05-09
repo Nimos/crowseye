@@ -1,12 +1,13 @@
 <?php
 
   #CONFIG DEFAULTS and some other stuff
-  $version = "1.2.1";
+  $version = "1.2.2";
   $projectName = "Crow's Eye";
   $doctype = '<!DOCTYPE html>';
   $charset = "utf-8";
   $homePassword = "";
-  #END OF CONFIG
+  $news = "";
+  #END OF DEFAULTS
   
   foreach (glob("views/*.php") as $file) {
     include $file;
