@@ -40,7 +40,7 @@
 			"kills" => jsonKills($holes, $after),
 			"comments" => jsonGetComments($holes, $after),
 			"sites" => jsonGetSites($holes, $after),
-			"igbheaders" => jsonDumbEcho()
+			"igbheaders" => $IGB=IGB::getInstance()
 		);
 
 		echo( json_encode( $result ) ) ;
@@ -54,10 +54,7 @@
 		}
 	}
 
-	function jsonDumbEcho () {
-		$IGB=IGB::getInstance();
-		return json_encode($IGB);
-	}
+
 
 
 
