@@ -9,6 +9,7 @@
     "^/api/comments/([0-9]*)$" => "jsonComments",
     "^/api/sites/([0-9]*)$" => "jsonUpdateSites",
     "^/api/information/(.*)$" => "jsonInformation",
+    "^/api/delete$" => "jsonDelete",
     "^/dojo$" => "dojoParser",
     "^/help/fittings$" => "fittingHelp",
     "^/help/(.*)$" => "embeddedGdoc",

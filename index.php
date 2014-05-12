@@ -7,6 +7,7 @@
   $charset = "utf-8";
   $homePassword = "";
   $news = "";
+  $directorPassword = "";
   #END OF DEFAULTS
   
   foreach (glob("views/*.php") as $file) {

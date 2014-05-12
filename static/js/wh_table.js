@@ -224,6 +224,7 @@ function addWh (wh) {
 		row+= '  </td>';
 		row+= '  <td colspan="5">';
 		row+= '    <div class="info">';
+		row+= '      <input class="delete" id="'+wh.id+'" type="password" placeholder="director delete"></input>';
 		row+= '      <h4>Additional Information</h4>';
 		row+= '      <span><strong>Signature ID:</strong> '+wh.sig+'</span>';
 		row+= '    </div>';
@@ -267,6 +268,13 @@ function addWh (wh) {
 	} else {
 		$("tbody.holes:last").append(row);;
 	}
+
+	$(".delete").keyup(function (e) {
+    	if (e.keyCode == 13) {
+        	$.post('/api/delete', {id: $(this).attr('id'), pw: $(this).val()});
+    	}
+	});
+
 	if (wh.effect) {
 		var effectname = wh.effect[0].replace(" ", "").replace("	","");
 		var effectreadable = wh.effect[0].substr(1);

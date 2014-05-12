@@ -54,6 +54,11 @@
 		}
 	}
 
+	function jsonDelete ($args) {
+		if ($_POST['pw'] === $GLOBALS['directorPassword']) {
+			Wormhole::removeHoleById($_POST['id']);
+		}
+	}
 
 
 

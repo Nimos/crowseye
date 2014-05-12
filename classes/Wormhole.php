@@ -380,6 +380,12 @@
 
 		}
 
+		public static function removeHoleById($id) {
+			$db = new SQLite3("db/wh.db");
+			$db->busyTimeout(1000);
+			$res = $db->exec('UPDATE holes SET reported=-1 WHERE rowid='.SQLite3::escapeString($id).';');
+		}
+
 		public static function getObjects () {
 			$result = array();
 			foreach (Database::getObjects('SELECT holes.rowid,*,players._ROWID_ FROM holes JOIN players ON holes.reporter=players._ROWID_') as $hole) {
