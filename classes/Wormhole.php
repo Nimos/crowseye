@@ -136,7 +136,7 @@
 
 			}
 
-			if (!isset($_COOKIE['home'])) $_COOKIE['home'] = "Chidah";
+			if (!isset($_COOKIE['home'])) $_COOKIE['home'] = "GJ0-OJ";
 
 
 			if ($_COOKIE['home'] == "Ratillose") {
@@ -277,6 +277,38 @@
 				);
 			} else  {
 				$jumpArray = array(
+					strtolower("GJ0-OJ") => "0",
+					strtolower("JWZ2-V") => "1",
+					strtolower("J-ODE7") => "2",
+					strtolower("OGL8-Q") => "3",
+					strtolower("R-K4Qy") => "4",
+					strtolower("A-803L") => "1",
+					strtolower("I-8D0G") => "2",
+					strtolower("WQG-4K") => "3",
+					strtolower("ZXIC-7") => "4",
+					strtolower("KDF-GY") => "5",
+					strtolower("F4R2-Q") => "5",
+					strtolower("6X7-JO") => "2",
+					strtolower("HY-RWO") => "3",
+					strtolower("EX6-AO") => "4",
+					strtolower("Q-U96U") => "5",
+					strtolower("V-3Yg7") => "4",
+					strtolower("B-3QPD") => "5",
+					strtolower("GE-8JV") => "5",
+					strtolower("Q-S7ZD") => "1",
+					strtolower("3L3N-X") => "2",
+					strtolower("4-P4FE") => "3",
+					strtolower("RH0-EG") => "4",
+					strtolower("D-9UEV") => "5",
+					strtolower("89R-PI") => "5",
+					strtolower("UALX-3") => "3",
+					strtolower("Y-ORBJ") => "4",
+					strtolower("6-IAFR") => "5",
+					strtolower("DT-PXH") => "4",
+					strtolower("S4-9DN") => "5"
+				);
+
+				/*$jumpArray = array(
 					strtolower("Barleguet") => "0",
 					strtolower('Ausmaert') => "1",
 					strtolower("Vestouve") => "1",
@@ -303,7 +335,7 @@
 					strtolower("Pain") => "5",
 					strtolower("Covryn") => "5",
 					strtolower("Ostingele") => "5"
-				);
+				);*///dont need this anymore
 			}
 
 			if (isset($jumpArray[strtolower($system)])) {

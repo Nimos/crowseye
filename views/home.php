@@ -24,7 +24,7 @@
 		$pageTitle = "Home";
 		$IGB = IGB::getInstance();
 
-		$home = "Chidah";
+		$home = "GJ0-OJ";
   	if (isset($_COOKIE['home'])) $home = $_COOKIE['home'];
     if (!isset($_COOKIE['pwd'])) {
       header("location: login");

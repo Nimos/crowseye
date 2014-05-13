@@ -28,7 +28,7 @@
           </h1>
           <h1 class="panel-title pull-right panel-title" style="margin-right: 5px;">Home System:
             <select id="homeSystem">
-              <option value="Barleguet">Barleguet</option>
+              <option <? if ($home == "GJ0-OJ"): ?>selected="selected"<? endif ?>value="GJ0-OJ">GJ0-OJ</option>
               <option <? if ($home == "Ratillose"): ?>selected="selected"<? endif ?> value="Ratillose">Ratillose</option>
               <option <? if ($home == "Sendaya"): ?>selected="selected"<? endif ?> value="Sendaya">Sendaya</option>
               <option <? if ($home == "Chidah"): ?>selected="selected"<? endif ?> value="Chidah">Chidah</option>
