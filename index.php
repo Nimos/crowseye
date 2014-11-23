@@ -19,8 +19,6 @@
   }
 
   require_once("urls.php");
-  
-
 
   foreach ($urls as $value => $func) {
     if (preg_match("@".$value."@i", $_SERVER['REQUEST_URI'], $args)) {

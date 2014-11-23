@@ -1,20 +1,20 @@
-<?echo $GLOBALS['doctype'] ?>
+<?php echo $GLOBALS['doctype'] ?>
 <html>
-  <?include "templates/head.html";?>
+  <?php include "templates/head.html";?>
   <body>
-    <? showLayout() ?>
+    <?php  showLayout() ?>
     <div class="container">
       <div class="alert alert-info">Make sure to check out our <a href="/help" class="alert-link">Help Section</a> for awesome guides and ship fittings!</div>
-      <? if ($GLOBALS['news'] != ""): ?>
+      <?php  if ($GLOBALS['news'] != ""): ?>
         <div class="panel panel-danger">
           <div class="panel-heading">
             <h3 class="panel-title">Crow Vanguard News</h3>
           </div>
           <div class="panel-body">
-            <? echo $GLOBALS['news']; ?>
+            <?php  echo $GLOBALS['news']; ?>
           </div>
         </div>
-      <? endif ?>
+      <?php  endif ?>
     	<div class="panel panel-default">
         <div style="overflow: hidden" class="panel-heading">
           <h3 class="panel-title pull-left">Recently scanned wormholes</h3>
@@ -28,10 +28,10 @@
           </h1>
           <h1 class="panel-title pull-right panel-title" style="margin-right: 5px;">Home System:
             <select id="homeSystem">
-              <option <? if ($home == "GJ0-OJ"): ?>selected="selected"<? endif ?>value="GJ0-OJ">GJ0-OJ</option>
-              <option <? if ($home == "Ratillose"): ?>selected="selected"<? endif ?> value="Ratillose">Ratillose</option>
-              <option <? if ($home == "Sendaya"): ?>selected="selected"<? endif ?> value="Sendaya">Sendaya</option>
-              <option <? if ($home == "Chidah"): ?>selected="selected"<? endif ?> value="Chidah">Chidah</option>
+              <option <?php  if ($home == "GJ0-OJ"): ?>selected="selected"<?php  endif ?>value="GJ0-OJ">GJ0-OJ</option>
+              <option <?php  if ($home == "Ratillose"): ?>selected="selected"<?php  endif ?> value="Ratillose">Ratillose</option>
+              <option <?php  if ($home == "Sendaya"): ?>selected="selected"<?php  endif ?> value="Sendaya">Sendaya</option>
+              <option <?php  if ($home == "Chidah"): ?>selected="selected"<?php  endif ?> value="Chidah">Chidah</option>
             </select>
           </h1>
         </div>
@@ -48,7 +48,7 @@
       					<th>Activity</th>
       					<th>Reported By</th>
       					<th>Reported</th>
-                <th><? if ($IGB->trusted): ?><a onclick="openAddModal()" id="plusWh" href="#">+</a><? endif ?></th>
+                <th><?php  if ($IGB->trusted): ?><a onclick="openAddModal()" id="plusWh" href="#">+</a><?php  endif ?></th>
       				</tr>
       			</thead>
       			<tbody class="holes">
@@ -60,7 +60,7 @@
         </div>
  		</div>
   </div>
-    <? include "templates/footer.html"; ?>
-    <? include "templates/scripts.html"; ?>
+    <?php  include "templates/footer.html"; ?>
+    <?php  include "templates/scripts.html"; ?>
   </body>
 </html>

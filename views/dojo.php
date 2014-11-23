@@ -1,4 +1,4 @@
-<?
+<?php
 	##
 	# this whole file is unrelated to the actual WH tracker, and just happens to be on the same website for convienience
 	function dojoparser () {

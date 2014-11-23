@@ -2,31 +2,31 @@
   
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/"><? echo $GLOBALS['projectName']; ?></a>
-      <? if ($IGB->trusted): ?>
+      <a class="navbar-brand" href="/"><?php  echo $GLOBALS['projectName']; ?></a>
+      <?php  if ($IGB->trusted): ?>
         <p class="navbar-text">
-          <span class="tp character_field char_header" name="<? echo $IGB->charID;?>" style="background-image: url(http://image.eveonline.com/corporation/<?echo $IGB->corpID;?>_32.png), url(http://image.eveonline.com/character/<? echo $IGB->charID;?>_32.jpg)">
-            <?echo $IGB->charName;?>
+          <span class="tp character_field char_header" name="<?php  echo $IGB->charID;?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $IGB->corpID;?>_32.png), url(http://image.eveonline.com/character/<?php  echo $IGB->charID;?>_32.jpg)">
+            <?php echo $IGB->charName;?>
           </span>
           - Logged In
         </p>
-      <? endif ?>
+      <?php  endif ?>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <? foreach (getGuides() as $guide): ?>
-              <li><a href="/help/<?echo $guide[0];?>"><?echo $guide[1];?></a></li>
-              <? endforeach ?>
+              <?php  foreach (getGuides() as $guide): ?>
+              <li><a href="/help/<?php echo $guide[0];?>"><?php echo $guide[1];?></a></li>
+              <?php  endforeach ?>
               <li class="divider"></li>
               <li><a href="/help/fittings">Fittings</a></li>
             </ul>
           </li>
-        <? if ($IGB->trusted && isAuthenticated()): ?>
+        <?php  if ($IGB->trusted && isAuthenticated()): ?>
           <li><a href="#" onclick="openAddModal()">Add Wormhole</a></li>
-        <? endif; ?>
+        <?php  endif; ?>
         <li class="dropdown">
           <a href="/top">Rankings</a>
         </li>
@@ -35,5 +35,5 @@
   </div>
 </div>
 
-<? if ($IGB->trusted) { addModal(); }?>
+<?php  if ($IGB->trusted) { addModal(); }?>
   

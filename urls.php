@@ -1,4 +1,4 @@
-<?
+<?php
 
   $urls = array(
     "^/$" => 'home',

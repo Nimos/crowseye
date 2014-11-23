@@ -1,8 +1,8 @@
-<?echo $GLOBALS['doctype'] ?>
+<?php echo $GLOBALS['doctype'] ?>
 <html>
-	<? include("templates/head.html"); ?>
+	<?php  include("templates/head.html"); ?>
 	<body>
-		<?showLayout();?>
+		<?php showLayout();?>
 
 
 		<div class="jumbotron">
@@ -14,10 +14,10 @@
 		    		<input type="submit"></input>
 		    	</form>
 		    </p>
-		    <? if ($nope): ?><span style="color: red" class="small red warning">Incorrect Password.</span><?endif?>
+		    <?php  if ($nope): ?><span style="color: red" class="small red warning">Incorrect Password.</span><?php endif?>
 		</div>
 		
-		<?include("templates/footer.html");?>
-		<?include("templates/scripts.html");?>
+		<?php include("templates/footer.html");?>
+		<?php include("templates/scripts.html");?>
 	</body>
 </html>

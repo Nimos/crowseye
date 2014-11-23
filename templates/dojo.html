@@ -1,10 +1,10 @@
-<?echo $GLOBALS['doctype'] ?>
+<?php echo $GLOBALS['doctype'] ?>
 <html>
-	<?include "templates/head.html";?>
+	<?php include "templates/head.html";?>
 	<body>
-		<? showLayout() ?>
+		<?php  showLayout() ?>
 		<div class="container">
-			<? if ($hasBooks): ?>
+			<?php  if ($hasBooks): ?>
 			<div class="col-md-6">
 				<h4>Out of Stock</h4>
 				<table class="table danger table-bordered">
@@ -13,7 +13,7 @@
 						<th>Quantity</th>
 					</thead>
 					<tbody>
-						<? echo $outOfStock ?>
+						<?php  echo $outOfStock ?>
 					</tbody>
 				</table>
 			</div>
@@ -25,11 +25,11 @@
 						<th>Quantity</th>
 					</thead>
 					<tbody>
-						<? echo $warning ?>
+						<?php  echo $warning ?>
 					</tbdy>
 				</table>
 			</div>
-			<? endif ?>
+			<?php  endif ?>
 			<div class="container">
 				<form action="/dojo" method="post">
 					<textarea class="form-control" name="books" placeholder="Paste hangar contents here"></textarea>
@@ -37,8 +37,8 @@
 				</form>
 			</div>
 		</div>
-		<?include "templates/footer.html";?>
-		<?include "templates/scripts.html";?>
+		<?php include "templates/footer.html";?>
+		<?php include "templates/scripts.html";?>
 	</body>
 </html>
 

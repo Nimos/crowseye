@@ -1,8 +1,8 @@
-<?echo $GLOBALS['doctype'] ?>
+<?php echo $GLOBALS['doctype'] ?>
 <html>
-	<?include "templates/head.html";?>
+	<?php include "templates/head.html";?>
 	<body>
-		<? showLayout();?>
+		<?php  showLayout();?>
     <div class="container">
   		<div class="panel panel-default">
 
@@ -47,9 +47,9 @@
                   <td></td>
                   <td >
                     <input type="text" class="loot-form" placeholder="Name"><select class="loot-form fused-select">
-      					    <? foreach ($roles as $role => $share): ?>
-      						    <option value="<? echo $share; ?>"><? echo $role; ?>
-      					    <? endforeach; ?>
+      					    <?php  foreach ($roles as $role => $share): ?>
+      						    <option value="<?php  echo $share; ?>"><?php  echo $role; ?>
+      					    <?php  endforeach; ?>
       				      </select>
       			       </td>
                    <td>
@@ -71,8 +71,8 @@
   		</div>
   </div>
 </div>
-		<?include "templates/footer.html";?>
-		<?include "templates/scripts.html";?>
+		<?php include "templates/footer.html";?>
+		<?php include "templates/scripts.html";?>
 	</body>
 </html>
 

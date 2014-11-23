@@ -1,4 +1,4 @@
-<?	
+<?php
 	require_once('classes/Wormhole.php');
 	require_once('classes/IGB.php');
 	function jsonWormholes () {

@@ -1,4 +1,4 @@
-<?
+<?php
 function fittingHelp() {
 		
 	$pageTitle = "Fittings";

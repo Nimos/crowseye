@@ -1,28 +1,28 @@
-<?echo $GLOBALS['doctype'] ?>
+<?php echo $GLOBALS['doctype'] ?>
 <html>
-	<? include("templates/head.html"); ?>
+	<?php  include("templates/head.html"); ?>
 	<body>
-		<?include("templates/layout.html");?>
+		<?php include("templates/layout.html");?>
 
 
-		<? if ($IGB->used):?>
+		<?php  if ($IGB->used):?>
 			<div class="jumbotron">
 				<h1>Website requires trust</h1>
 			    <p>To use this website to its full capabilities, please accept the trust request and use the button to go back where you came from.</p>
 			    <p>
-			    	<a class="btn btn-lg btn-primary" href="#" onclick='CCPEVE.requestTrust("http://<?echo $_SERVER['HTTP_HOST'] ?>/*")' role="button">Re-send trust request</a>
-			    	<a class="btn btn-lg btn-primary" href="<?echo $_GET['from']?>" role="button">Go back</a>
+			    	<a class="btn btn-lg btn-primary" href="#" onclick='CCPEVE.requestTrust("http://<?php echo $_SERVER['HTTP_HOST'] ?>/*")' role="button">Re-send trust request</a>
+			    	<a class="btn btn-lg btn-primary" href="<?php echo $_GET['from']?>" role="button">Go back</a>
 			    </p>
 			</div>
-			<script>CCPEVE.requestTrust("http://<?echo $_SERVER['HTTP_HOST'] ?>/*")</script>
-		<? else:?>
+			<script>CCPEVE.requestTrust("http://<?php echo $_SERVER['HTTP_HOST'] ?>/*")</script>
+		<?php  else:?>
 			<div class="jumbotron">
 				<h1>Website requires trust</h1>
 			    <p>To use this website to its full capabilities, please open it in the in the ingame browser.</p>
 			</div>
-		<?endif?>
+		<?php endif?>
 
-		<?include("templates/footer.html");?>
-		<?include("templates/scripts.html");?>
+		<?php include("templates/footer.html");?>
+		<?php include("templates/scripts.html");?>
 	</body>
 </html>

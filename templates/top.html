@@ -1,8 +1,8 @@
-<?echo $GLOBALS['doctype'] ?>
+<?php echo $GLOBALS['doctype'] ?>
 <html>
-	<?include "templates/head.html";?>
+	<?php include "templates/head.html";?>
 	<body>
-		<? showLayout();?>
+		<?php  showLayout();?>
 		<div class="container">
 			<div class="col-md-6">
 				<h4>Top Scouts <small>(This month)</small></h4>
@@ -13,13 +13,13 @@
 						<th>Wormholes Scanned</th>
 					</thead>
 					<tbody>
-						<? $c=1; foreach($topScoutsThis as $scout): ?>
+						<?php  $c=1; foreach($topScoutsThis as $scout): ?>
 							<tr>
-								<td><? echo $c++; ?></td>
-								<td><span class="character_field" name="<? echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<? echo $scout[2]?>_32.jpg);"><? echo $scout[1]; ?></span></td>
-								<td><? echo $scout[4]; ?></td>
+								<td><?php  echo $c++; ?></td>
+								<td><span class="character_field" name="<?php  echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $scout[2]?>_32.jpg);"><?php  echo $scout[1]; ?></span></td>
+								<td><?php  echo $scout[4]; ?></td>
 							</tr>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -32,13 +32,13 @@
 						<th>Wormholes Scanned</th>
 					</thead>
 					<tbody>
-						<? $c=1; foreach($topScoutsLast as $scout): ?>
+						<?php  $c=1; foreach($topScoutsLast as $scout): ?>
 							<tr>
-								<td><? echo $c++; ?></td>
-								<td><span class="character_field" name="<? echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<? echo $scout[2]?>_32.jpg);"><? echo $scout[1]; ?></span></td>
-								<td><? echo $scout[4]; ?></td>
+								<td><?php  echo $c++; ?></td>
+								<td><span class="character_field" name="<?php  echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $scout[2]?>_32.jpg);"><?php  echo $scout[1]; ?></span></td>
+								<td><?php  echo $scout[4]; ?></td>
 							</tr>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -53,13 +53,13 @@
 						<th>Wormholes Scanned</th>
 					</thead>
 					<tbody>
-						<? $c=1; foreach($topScouts as $scout): ?>
+						<?php  $c=1; foreach($topScouts as $scout): ?>
 							<tr>
-								<td><? echo $c++; ?></td>
-								<td><span class="character_field" name="<? echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<? echo $scout[2]?>_32.jpg);"><? echo $scout[1]; ?></span></td>
-								<td><? echo $scout[4]; ?></td>
+								<td><?php  echo $c++; ?></td>
+								<td><span class="character_field" name="<?php  echo $scout[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $scout[3];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $scout[2]?>_32.jpg);"><?php  echo $scout[1]; ?></span></td>
+								<td><?php  echo $scout[4]; ?></td>
 							</tr>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -72,19 +72,19 @@
 						<th>Wormholes</th>
 					</thead>
 					<tbody>
-						<? $c=1; foreach($topSystems as $system): ?>
+						<?php  $c=1; foreach($topSystems as $system): ?>
 							<tr>
-								<td><? echo $c++; ?></td>
-								<td><? echo $system[0]; ?></td>
-								<td><? echo $system[1]; ?></td>
+								<td><?php  echo $c++; ?></td>
+								<td><?php  echo $system[0]; ?></td>
+								<td><?php  echo $system[1]; ?></td>
 							</tr>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<?include "templates/footer.html";?>
-		<?include "templates/scripts.html";?>
+		<?php include "templates/footer.html";?>
+		<?php include "templates/scripts.html";?>
 	</body>
 </html>
 

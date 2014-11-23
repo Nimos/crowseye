@@ -1,13 +1,13 @@
-<?echo $GLOBALS['doctype'] ?>
+<?php echo $GLOBALS['doctype'] ?>
 <html>
-	<?include "templates/head.html";?>
+	<?php include "templates/head.html";?>
 	<body>
-		<? showLayout();?>
+		<?php  showLayout();?>
     	<div class="container">
-            <?foreach ($fittings as $table => $fits):?>
+            <?php foreach ($fittings as $table => $fits):?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h1 class="panel-title"><?echo $table?></h1>
+                        <h1 class="panel-title"><?php echo $table?></h1>
                     </div>
                     <table class="table">
                         <thead>
@@ -20,30 +20,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <? foreach ($fits as $fitting): ?>
+                            <?php  foreach ($fits as $fitting): ?>
                                 <tr>
                                     <td style="width: 120px; vertical-align: middle">
-                                        <a href="#" onclick="CCPEVE.showFitting('<?echo $fitting[5]?>'); return false;">[IGB]</a>
-                                        <a href="#" class="eft" data-placement="bottom" data-content="<pre><?echo $fitting[6]?></pre>">[EFT]</a>
+                                        <a href="#" onclick="CCPEVE.showFitting('<?php echo $fitting[5]?>'); return false;">[IGB]</a>
+                                        <a href="#" class="eft" data-placement="bottom" data-content="<pre><?php echo $fitting[6]?></pre>">[EFT]</a>
                                     </td>
-                                    <td style="vertical-align: middle"><img style="height: 32px; margin-right: 5px; border-radius: 5px" src="/static/img/ships/<?echo $fitting[1]?>.png" /><? echo $fitting[0] ?>	</td>
-                                    <td style="vertical-align: middle"><?echo $fitting[2]?></td>
-                                    <td style="vertical-align: middle"><?echo $fitting[3]?></td>
-                                    <td style="vertical-align: middle"><?echo $fitting[4]?></td>
+                                    <td style="vertical-align: middle"><img style="height: 32px; margin-right: 5px; border-radius: 5px" src="/static/img/ships/<?php echo $fitting[1]?>.png" /><?php  echo $fitting[0] ?>	</td>
+                                    <td style="vertical-align: middle"><?php echo $fitting[2]?></td>
+                                    <td style="vertical-align: middle"><?php echo $fitting[3]?></td>
+                                    <td style="vertical-align: middle"><?php echo $fitting[4]?></td>
                                 </tr>
-                            <?endforeach?>
+                            <?php endforeach?>
                         </tbody>
                     </table>
                 </div>
-            <?endforeach?>            
+            <?php endforeach?>            
         </div>
-   		<?include "templates/scripts.html" ?>
+   		<?php include "templates/scripts.html" ?>
 
     	<script type="text/javascript">
 	    	$('.eft').popover({
     			html: true
     		});
     	</script>
-    	<?include "templates/footer.html" ?>
+    	<?php include "templates/footer.html" ?>
    	</body>
 </html>

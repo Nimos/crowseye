@@ -1,4 +1,4 @@
-<?  
+<?php  
     #sqlite3 database wrapper
     #
     # this was supposed to handle all the database access, but I scrapped that concept out of lazyness halfway through

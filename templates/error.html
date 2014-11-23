@@ -1,19 +1,19 @@
-<?echo $GLOBALS['doctype'] ?>
+<?php echo $GLOBALS['doctype'] ?>
 <html>
-	<? include "head.html"; ?>
+	<?php  include "head.html"; ?>
 	<body>
-		<? showLayout();?>
+		<?php  showLayout();?>
 	
 		<div class="container" style="vertical-align: middle; text-align: center;">
 			<div class="jumbotron">
-		    	<h1><? echo $errorTitle; ?></h1>
-		        <p><? echo $errorText; ?></p>
+		    	<h1><?php  echo $errorTitle; ?></h1>
+		        <p><?php  echo $errorText; ?></p>
 		        <p>
 		        	<a href="/" class="btn btn-lg btn-primary">Back to the Start Page</a>
 		        </p>
 			</div>
 		</div>
-		<?include "scripts.html"; ?>
+		<?php include "scripts.html"; ?>
 	</body>
 </html>
 

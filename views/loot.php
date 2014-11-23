@@ -1,5 +1,5 @@
 
-<?
+<?php
 function loot () {
 	$pageTitle = "Loot Sheet";
 
