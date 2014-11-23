@@ -209,13 +209,6 @@ function helpLanding() {
 
 function getGuides() {
 	$guides = array(
-		array("intro", "Intro", "https://docs.google.com/document/d/13A1RUBUghcMq3QLXJ1euXzN3vvVusEmOMmH24CawTqQ/pub?embedded=true"),
-		array("howto","How To Fleet","https://docs.google.com/document/d/1T9Ly9rbsJjO1bdBjMI9y6uc2gBZD4LauONjuPkN-lR4/pub?embedded=true"),
-		array("security","Security","https://docs.google.com/document/d/13tueP8rBCHsahSpoKCu-i_eafGgsM-5CEKZ-PBx_QZw/pub"),
-		array("fc", "How To FC", "https://docs.google.com/document/d/1dtn3H2XgyW1frVpwzDZS5_tGhuBvoz2PLSgaAbJ6FKY/pub?embedded=true"),
-		array("programs", "Programs and FC Administration Guide", "https://docs.google.com/document/d/1S9Bqp0dKL9LMS4o2pJshUiAvTo8RBHoS4jxHe3tgMew/pub?embedded=true"),
-		array("thecompleteunknown", "The Complete Unknown", "https://docs.google.com/file/d/0B6wgmFqExhord1VsT09UZnoxdkE/preview"),
-		array("islandsamongstars", "Islands Among the Stars: A Guide to Everything Wormhole", "https://docs.google.com/file/d/0B6wgmFqExhorekVzeVUwcloyOGc/preview")
 	);
 	return $guides;
 }

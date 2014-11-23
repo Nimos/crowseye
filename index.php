@@ -1,8 +1,8 @@
 <?php
 
   #CONFIG DEFAULTS and some other stuff
-  $version = "1.2.2";
-  $projectName = "Crow's Eye";
+  $version = "1.3";
+  $projectName = "STAHP Track";
   $doctype = '<!DOCTYPE html>';
   $charset = "utf-8";
   $homePassword = "";
