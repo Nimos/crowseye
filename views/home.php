@@ -24,15 +24,19 @@
 		$pageTitle = "Home";
 		$IGB = IGB::getInstance();
 
-		$home = "GJ0-OJ";
   	if (isset($_COOKIE['home'])) $home = $_COOKIE['home'];
-    if (!isset($_COOKIE['pwd'])) {
-      header("location: login");
-      return;
-    }
-    if ($_COOKIE['pwd'] != $GLOBALS['homePassword']) {
-      header("location: login");
-      return;
+   
+    if ($GLOBALS['homePassword'] != "") {
+    
+      if (!isset($_COOKIE['pwd'])) {
+        header("location: login");
+        return;
+      }
+
+      if ($_COOKIE['pwd'] != $GLOBALS['homePassword']) {
+        header("location: login");
+        return;
+      }
     }
 
 		if ($IGB->used && !$IGB->trusted) {
