@@ -7,7 +7,8 @@
   $charset = "utf-8";
   $homePassword = "";
   $news = "";
-  $directorPassword = "";
+  $crest_clientID = "";
+  $crest_secretKey = "";
   #END OF DEFAULTS
   
   if (file_exists("config.php")) {
@@ -17,6 +18,8 @@
   foreach (glob("views/*.php") as $file) {
     include $file;
   }
+
+  session_start(); 
 
   require_once("urls.php");
 

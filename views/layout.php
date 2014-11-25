@@ -3,6 +3,9 @@
 	require_once("classes/IGB.php");
 
 	function isAuthenticated() {
+		if ($GLOBALS['homePassword'] == "") {
+			return true;
+		}
    		if (!isset($_COOKIE['pwd'])) {
 	      	return false;
     	}

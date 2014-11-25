@@ -3,14 +3,20 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/"><?php  echo $GLOBALS['projectName']; ?></a>
-      <?php  if ($charInfo->trusted): ?>
-        <p class="navbar-text">
+      <p class="navbar-text" style="margin-top: 7px; margin-bottom: 7px">
+        <?php  if ($charInfo->trusted or $charInfo->authed): ?>
           <span class="tp character_field char_header" name="<?php  echo $charInfo->charID;?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $charInfo->corpID;?>_32.png), url(http://image.eveonline.com/character/<?php  echo $charInfo->charID;?>_32.jpg)">
             <?php echo $charInfo->charName;?>
           </span>
-          - Logged In
-        </p>
-      <?php  endif ?>
+          <?php if ($charInfo->authed): ?>
+            - Logged In
+          <?php else: ?>
+            - Unauthenticated <a href="/ssologin"><img src="https://images.contentful.com/idjq7aai9ylm/12vrPsIMBQi28QwCGOAqGk/33234da7672c6b0cdca394fc8e0b1c2b/EVE_SSO_Login_Buttons_Small_Black.png?w=150" /></a>
+          <?php endif ?>
+        <?php else: ?>
+          Unauthenticated <a href="/ssologin"><img src="https://images.contentful.com/idjq7aai9ylm/12vrPsIMBQi28QwCGOAqGk/33234da7672c6b0cdca394fc8e0b1c2b/EVE_SSO_Login_Buttons_Small_Black.png?w=150" /></a>
+        <?php  endif ?>
+      </p>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
@@ -27,6 +33,18 @@
         <?php  if ($charInfo->trusted && isAuthenticated()): ?>
           <li><a href="#" onclick="openAddModal()">Add Wormhole</a></li>
         <?php  endif; ?>
+        <?php if ($charInfo->officer): ?>
+          <li><a href="/loot">My Loot Sheets</a></li>
+        <?php endif; ?>
+        <?php if ($charInfo->director): ?>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+             <ul class="dropdown-menu">
+              <li><a href="/admin/loot">Loot Sheets</a></li>
+              <li><a href="/admin/users">Users</a></li>
+            </ul>
+          </li>
+        <?php endif; ?>
         <li class="dropdown">
           <a href="/top">Rankings</a>
         </li>

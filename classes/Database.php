@@ -16,7 +16,7 @@
             	    $this->db->exec('CREATE TABLE holes (system TEXT, name TEXT, reporter INT, reported INT, signature TEXT);');
                     
                     #players
-                    $this->db->exec('CREATE TABLE players (charName TEXT, charID TEXT, corpID INT, fc INT);');
+                    $this->db->exec('CREATE TABLE players (charName TEXT, charID TEXT, corpID INT, fc INT, director INT);');
                     
                     #comments
                     $this->db->exec('CREATE TABLE comments (hole INT, author INT, time INT, text TEXT);');
