@@ -3,10 +3,10 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/"><?php  echo $GLOBALS['projectName']; ?></a>
-      <?php  if ($IGB->trusted): ?>
+      <?php  if ($charInfo->trusted): ?>
         <p class="navbar-text">
-          <span class="tp character_field char_header" name="<?php  echo $IGB->charID;?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $IGB->corpID;?>_32.png), url(http://image.eveonline.com/character/<?php  echo $IGB->charID;?>_32.jpg)">
-            <?php echo $IGB->charName;?>
+          <span class="tp character_field char_header" name="<?php  echo $charInfo->charID;?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $charInfo->corpID;?>_32.png), url(http://image.eveonline.com/character/<?php  echo $charInfo->charID;?>_32.jpg)">
+            <?php echo $charInfo->charName;?>
           </span>
           - Logged In
         </p>
@@ -24,7 +24,7 @@
               <li><a href="/help/fittings">Fittings</a></li>
             </ul>
           </li>
-        <?php  if ($IGB->trusted && isAuthenticated()): ?>
+        <?php  if ($charInfo->trusted && isAuthenticated()): ?>
           <li><a href="#" onclick="openAddModal()">Add Wormhole</a></li>
         <?php  endif; ?>
         <li class="dropdown">
@@ -35,5 +35,5 @@
   </div>
 </div>
 
-<?php  if ($IGB->trusted) { addModal(); }?>
+<?php  if ($charInfo->trusted) { addModal(); }?>
   

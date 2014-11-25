@@ -1,6 +1,6 @@
 <?php
-	# all the information the EVE ingame browser provides in one nicely packed object!
-	class IGB {
+	# stores the information provided by EVE SSO and the ingame browser headers
+	class CharacterInformation {
 		private static $instance;
 
 		public $used;

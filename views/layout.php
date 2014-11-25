@@ -14,7 +14,7 @@
 	}
 
 	function showLayout() {
-		$IGB = IGB::getInstance();
+		$charInfo = CharacterInformation::getInstance();
 		include("templates/layout.html");
 	}
 

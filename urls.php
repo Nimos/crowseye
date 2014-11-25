@@ -15,6 +15,7 @@
     "^/help/(.*)$" => "embeddedGdoc",
     "^/help$" => "helpLanding",
     "^/login$" => "login",
+    "^/ssologin" => "ssologin"
     
   );
 

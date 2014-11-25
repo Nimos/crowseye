@@ -10,12 +10,12 @@
   $directorPassword = "";
   #END OF DEFAULTS
   
-  foreach (glob("views/*.php") as $file) {
-    include $file;
-  }
-
   if (file_exists("config.php")) {
     include("config.php"); #for things like setting a password
+  }
+
+  foreach (glob("views/*.php") as $file) {
+    include $file;
   }
 
   require_once("urls.php");

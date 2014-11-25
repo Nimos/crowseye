@@ -2,11 +2,11 @@
 	require_once('classes/IGB.php');
 
 	function addModal() {
-		$igb = IGB::getInstance();
-		if (!$igb->trusted) return;
+		$$charInfo = CharacterInformation::getInstance();
+		if (!$$charInfo->trusted) return;
 
 		$inWSpace = false;
-		if (preg_match('/J[0-9][0-9][0-9][0-9][0-9][0-9]/i', $igb->solarSystemName)) {
+		if (preg_match('/J[0-9][0-9][0-9][0-9][0-9][0-9]/i', $$charInfo->solarSystemName)) {
 			$inWSpace = true;
 		}
 

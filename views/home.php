@@ -22,10 +22,12 @@
 	function home() {
 		
 		$pageTitle = "Home";
-		$IGB = IGB::getInstance();
+		$charInfo = CharacterInformation::getInstance();
+
+    $home = "GJ0-OJ";
 
   	if (isset($_COOKIE['home'])) $home = $_COOKIE['home'];
-   
+    
     if ($GLOBALS['homePassword'] != "") {
     
       if (!isset($_COOKIE['pwd'])) {
@@ -39,7 +41,7 @@
       }
     }
 
-		if ($IGB->used && !$IGB->trusted) {
+		if ($charInfo->used && !$charInfo->trusted) {
     		header("location: trust?from=" . $_SERVER['REQUEST_URI']);
   		} else {
   		

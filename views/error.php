@@ -2,7 +2,7 @@
 	require_once('classes/IGB.php');
 
 	function requestError ($code, $request) {
-		$IGB = IGB::getInstance();
+		$charInfo = CharacterInformation::getInstance();
 		if ($code == 404) {
 			$errorTitle = "404 - Page not Found";
 			$errorText = "Sorry, we could not find the page you were looking for :(";
