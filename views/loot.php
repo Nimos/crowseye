@@ -81,7 +81,7 @@ function updateLootSheet ($args) {
 
 	$permissions = getSheetPermissions($sheet);
 
-	if ($permissions < 1) {
+	if ($permissions == 0) {
 		requestError(403);
 	}
 
@@ -90,7 +90,7 @@ function updateLootSheet ($args) {
 		Database::exec('UPDATE loots SET isk='.Sqlite3::escapeString($data['totalIsk']).', sites='.Sqlite3::escapeString($data['totalSites']).' WHERE rowid='.Sqlite3::escapeString($id).';');
 
 		foreach ($data['entries'] as $entry) {
-			Database::exec('UPDATE lootentries SET name="'.Sqlite3::escapeString($entry['name']).'", role="'.Sqlite3::escapeString($entry['role']).'", sites='.Sqlite3::escapeString($entry['sites']).', isk='.Sqlite3::escapeString($entry['isk']).' WHERE rowid='.Sqlite3::escapeString($entry['rowid']).';');
+			Database::exec('UPDATE lootentries SET name="'.Sqlite3::escapeString($entry['name']).'", role="'.Sqlite3::escapeString($entry['role']).'", sites='.Sqlite3::escapeString($entry['sites']).', isk='.Sqlite3::escapeString($entry['isk']).' WHERE rowid='.Sqlite3::escapeString($entry['rowid']).' AND sheet='.Sqlite3::escapeString($sheet['rowid']).';');
 		}
 
 		$sheet = Database::filterBy("loots", "rowid = ".SQLite3::escapeString($id));
