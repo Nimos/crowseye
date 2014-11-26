@@ -5,14 +5,14 @@
 		$charInfo=CharacterInformation::getInstance();
 		if ($_SERVER['REQUEST_METHOD'] == "GET") {
     		
-    		if (!isset($_COOKIE['pwd'])) {
-      			echo("{}");
-      			return;
-      		}
-    	
-    		if ($_COOKIE['pwd'] != $GLOBALS['homePassword']) {
-    		  echo("{}");
-    		  return;
+    		if ($GLOBALS['homePassword'] != "") {
+	    		if (!isset($_COOKIE['pwd'])) {
+	      			echo("{}");
+	      			return;
+	      		} else if ($_COOKIE['pwd'] != $GLOBALS['homePassword']) {
+	    			echo("{}");
+	    			return;
+	    		}
     		}
 
 			$whs = Wormhole::getObjects();

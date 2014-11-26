@@ -418,9 +418,9 @@
 			$res = $db->exec('UPDATE holes SET reported=-1 WHERE rowid='.SQLite3::escapeString($id).';');
 		}
 
-		public static function getObjects () {
+		public static function getObjects ($filter = "1=1") {
 			$result = array();
-			foreach (Database::getObjects('SELECT holes.rowid,*,players._ROWID_ FROM holes JOIN players ON holes.reporter=players._ROWID_') as $hole) {
+			foreach (Database::getObjects('SELECT holes.rowid,*,players._ROWID_ FROM holes JOIN players ON holes.reporter=players._ROWID_ WHERE '.$filter.';') as $hole) {
 				if (time() - $hole['reported'] > 86400) continue;
 				array_push($result, new Wormhole(
 					$hole[0],

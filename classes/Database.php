@@ -23,6 +23,12 @@
                     
                     #sites
                     $this->db->exec('CREATE TABLE sites (hole INT, type TEXT, name TEXT, sig TEXT, time INT);');
+
+                    #loot sheet master
+                    $this->db->exec('CREATE TABLE loots (hole TEXT, fc INT, date INT, sites INT, isk INT);');
+
+                    #loot sheet participants
+                    $this->db->exec('CREATE TABLE lootentries (sheet INT, name TEXT, sites INT, role TEXT);');
                 }   
             } else {
                 die($err);
@@ -71,6 +77,7 @@
             $db = new SQLite3('db/wh.db');
             $db->busyTimeout(1000);
             $query = $db->exec('INSERT INTO '.SQLite3::escapeString($type).' '.$object.';');
+            if (!$query) file_put_contents("log.error", "Type=".$type."\n", FILE_APPEND);
             return $db->lastInsertRowID();
             $db->close();
         }
@@ -79,6 +86,7 @@
             $db = new SQLite3('db/wh.db');
             $db->busyTimeout(1000);
             $query = $db->exec('DELETE FROM '.SQLite3::escapeString($type).' WHERE '.$where.';');
+            if (!$query) file_put_contents("log.error", "Type=".$type."\n", FILE_APPEND);
             return $db->getInstance()->lastInsertRowID();
             $db->close();
         }
@@ -86,7 +94,8 @@
         public static function exec($string) {
             $db = new SQLite3('db/wh.db');
             $db->busyTimeout(1000);
-            $db->exec($string);
+            $query = $db->exec($string);
+            if (!$query) file_put_contents("log.error", "Execstring=".$string."\n", FILE_APPEND);
             $db->close();
         }
     }

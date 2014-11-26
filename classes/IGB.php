@@ -37,6 +37,7 @@
             $this->authed = false;
             $this->officer = false;
             $this->director = false;
+            $this->dbID = -1;
 
             if (!isset($headers['EVE_TRUSTED'])) {
                     $this->used = false;
@@ -78,6 +79,7 @@
                     $charInfo = $charInfo[0];
 
                     if (!isset($this->corpID)) $this->corpID = $charInfo['corpID'];
+                    $this->dbID = $charInfo['rowid'];
                     $this->officer = $charInfo['fc'];
                     $this->director = $charInfo['director'];
                     if ($this->director) $this->officer = 1;

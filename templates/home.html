@@ -62,5 +62,9 @@
   </div>
     <?php  include "templates/footer.html"; ?>
     <?php  include "templates/scripts.html"; ?>
+    <script>
+      getWhData();
+      setInterval(getWhData,5000);
+    </script>
   </body>
 </html>

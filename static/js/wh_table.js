@@ -411,6 +411,3 @@ $("select#homeSystem").change(function () {
 	$.cookie('home', $(this).val());
 	location.reload();
 });
-
-getWhData();
-setInterval(getWhData,5000);

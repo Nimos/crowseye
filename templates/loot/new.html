@@ -1,0 +1,31 @@
+<?php echo $GLOBALS['doctype'] ?>
+<html>
+	<?php include "templates/head.html";?>
+	<body>
+		<?php  showLayout();?>
+    	<div class="container">
+			<form class="form-horizontal" action="" method="post">
+				<div class="form-group">
+    				<label for="holeName" class="col-sm-2 control-label">Wormhole Name</label>
+   					 <div class="col-sm-10">
+      					<input type="text" class="form-control" name="holeName" id="holeName" placeholder="ex. J105934">
+    				</div>
+  				</div>
+  				<div class="form-group">
+  					<label for="initialFleet" class="col-sm-2 control-label">Fleet Members</label>
+  					<div class="col-sm-10">
+  						<textarea rows="15" type="text" class="form-control" name="initialFleet" id="initialFleet" placeholder"Copy and Paste your fleet from the fleet chat window."></textarea>
+  					</div>
+  				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+				 		<button type="submit" class="btn btn-default">Create</button>
+				 	</div>
+				</div>
+			</form>
+
+    	</div>
+		<?php include "templates/footer.html";?>
+		<?php include "templates/scripts.html";?>
+	</body>
+</html>
