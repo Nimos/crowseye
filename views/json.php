@@ -2,28 +2,28 @@
 	require_once('classes/Wormhole.php');
 	require_once('classes/IGB.php');
 	function jsonWormholes () {
-		$IGB=IGB::getInstance();
+		$charInfo=CharacterInformation::getInstance();
 		if ($_SERVER['REQUEST_METHOD'] == "GET") {
     		
-    		if (!isset($_COOKIE['pwd'])) {
-      			echo("{}");
-      			return;
-      		}
-    	
-    		if ($_COOKIE['pwd'] != $GLOBALS['homePassword']) {
-    		  echo("{}");
-    		  return;
+    		if ($GLOBALS['homePassword'] != "") {
+	    		if (!isset($_COOKIE['pwd'])) {
+	      			echo("{}");
+	      			return;
+	      		} else if ($_COOKIE['pwd'] != $GLOBALS['homePassword']) {
+	    			echo("{}");
+	    			return;
+	    		}
     		}
 
 			$whs = Wormhole::getObjects();
 			echo(json_encode($whs));
 		} else if ($_SERVER['REQUEST_METHOD'] == "POST") {
-			if (!$IGB->trusted) return;
-			$wh = new Wormhole(-1, $_POST['systemName'], $_POST['wormholeName'], array(IGB::getInstance()->charID,IGB::getInstance()->charName,IGB::getInstance()->corpID), time(), Wormhole::parseScan($_POST['sites']), "", $_POST['sig']);
+			if (!$charInfo->trusted) return;
+			$wh = new Wormhole(-1, $_POST['systemName'], $_POST['wormholeName'], array(CharacterInformation::getInstance()->charID,CharacterInformation::getInstance()->charName,CharacterInformation::getInstance()->corpID), time(), Wormhole::parseScan($_POST['sites']), "", $_POST['sig']);
 			$whid = $wh->save();
 			if ($whid != -1) {
 				if ($_POST['comment'] != "") {
-					Wormhole::addComment(IGB::getInstance()->charID, $whid, $_POST['comment']);
+					Wormhole::addComment(CharacterInformation::getInstance()->charID, $whid, $_POST['comment']);
 				}
 			}
 			echo($whid);
@@ -40,7 +40,7 @@
 			"kills" => jsonKills($holes, $after),
 			"comments" => jsonGetComments($holes, $after),
 			"sites" => jsonGetSites($holes, $after),
-			"igbheaders" => $IGB=IGB::getInstance()
+			"igbheaders" => $charInfo=CharacterInformation::getInstance()
 		);
 
 		echo( json_encode( $result ) ) ;
@@ -64,7 +64,7 @@
 
 
 	function jsonKills ($systems, $after) {
-		$IGB=IGB::getInstance();
+		$charInfo=CharacterInformation::getInstance();
 		$kills = array();
 		foreach ($systems as $system) {
 			$cache_file = 'cache/dotlan/'.$system;
@@ -113,9 +113,9 @@
 	function jsonComments($args) {
 		if (!isset($_POST['text'])) return;
 		$hole = $args[1];
-		$IGB=IGB::getInstance();
-		if (!$IGB->trusted) return;
-		Wormhole::addComment($IGB->charID, $hole, $_POST['text']);
+		$charInfo=CharacterInformation::getInstance();
+		if (!$charInfo->trusted) return;
+		Wormhole::addComment($charInfo->charID, $hole, $_POST['text']);
 	}
 
 	function jsonGetComments($systems, $after) {

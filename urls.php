@@ -4,7 +4,12 @@
     "^/$" => 'home',
     "^/trust(.*)$" => 'trust',
     "^/top$" => 'top',
-    "^/loot(.*)$" => 'loot',
+    "^/loot/new$" => 'createLootSheet',
+    "^/loot/list$" => 'userLootList',
+    "^/loot/all$" => 'adminLootList',
+    "^/loot/(.*)/update" => "updateLootSheet",
+    "^/loot/(.*)/addMember" => "addLootSheetMember",
+    "^/loot/(.*)$" => 'viewLootSheet',
     "^/api/wh$" => "jsonWormholes",
     "^/api/comments/([0-9]*)$" => "jsonComments",
     "^/api/sites/([0-9]*)$" => "jsonUpdateSites",
@@ -15,6 +20,8 @@
     "^/help/(.*)$" => "embeddedGdoc",
     "^/help$" => "helpLanding",
     "^/login$" => "login",
+    "^/ssologin" => "ssologin",
+    "^/admin/users$" => "users"
     
   );
 

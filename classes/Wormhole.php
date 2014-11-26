@@ -75,7 +75,7 @@
 
 
 		public function save() {
-			$holeinfo = $charinfo = Database::filterBy("holes", ' name="'.SQLite3::escapeString($this->name).'"');
+			$holeinfo = $charInfo = Database::filterBy("holes", ' name="'.SQLite3::escapeString($this->name).'"');
 
 			if (self::getClassByName($this->name) == null) return -1;
 
@@ -87,15 +87,15 @@
 
 
 
-			$charinfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($this->reporter[0]).'"');
+			$charInfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($this->reporter[0]).'"');
 
-			if (count($charinfo) == 0) {
-				$id = Database::putObject("players", "(charName, charID, corpID, fc) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0);");	
-			} else if ($charinfo[0]['corpID'] != $this->reporter[2]) {
-				$id = $charinfo[0]['rowid'];
+			if (count($charInfo) == 0) {
+				$id = Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0,0);");	
+			} else if ($charInfo[0]['corpID'] != $this->reporter[2]) {
+				$id = $charInfo[0]['rowid'];
 				Database::exec('UPDATE players SET corpID="'.SQLite3::escapeString($this->reporter[2]).'" WHERE charID='.SQLite3::escapeString($this->reporter[0]).';');
 			} else {
-				$id = $charinfo[0]['rowid'];
+				$id = $charInfo[0]['rowid'];
 			}
 			$holeID = Database::putObject("holes", "(system, name, reporter, reported, sig) VALUES ('".SQLite3::escapeString($this->system)."','".SQLite3::escapeString($this->name)."','".SQLite3::escapeString($id)."','".SQLite3::escapeString($this->reported)."','".SQLite3::escapeString($this->sig)."')");
 
@@ -398,11 +398,11 @@
 		}
 
 		public static function addComment($playerID, $wh, $comment) {
-			$charinfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($playerID).'"');
-			if (count($charinfo) == 0) {
-				$id = Database::putObject("players", "(charName, charID, corpID, fc) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0);");	
+			$$charInfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($playerID).'"');
+			if (count($$charInfo) == 0) {
+				$id = Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0,0);");	
 			} else {
-				$id = $charinfo[0]['rowid'];
+				$id = $$charInfo[0]['rowid'];
 			}
 
 			$rid = Database::putObject("comments", "(hole, author, time, text) VALUES ('".SQLite3::escapeString($wh)."','".SQLite3::escapeString($id)."','".SQLite3::escapeString(time())."','".SQLite3::escapeString($comment)."');");	
@@ -418,9 +418,9 @@
 			$res = $db->exec('UPDATE holes SET reported=-1 WHERE rowid='.SQLite3::escapeString($id).';');
 		}
 
-		public static function getObjects () {
+		public static function getObjects ($filter = "1=1") {
 			$result = array();
-			foreach (Database::getObjects('SELECT holes.rowid,*,players._ROWID_ FROM holes JOIN players ON holes.reporter=players._ROWID_') as $hole) {
+			foreach (Database::getObjects('SELECT holes.rowid,*,players._ROWID_ FROM holes JOIN players ON holes.reporter=players._ROWID_ WHERE '.$filter.';') as $hole) {
 				if (time() - $hole['reported'] > 86400) continue;
 				array_push($result, new Wormhole(
 					$hole[0],

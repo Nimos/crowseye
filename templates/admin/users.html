@@ -1,0 +1,98 @@
+<?php echo $GLOBALS['doctype'] ?>
+<html>
+	<?php include "templates/head.html";?>
+	<body>
+		<?php  showLayout() ?>
+		<div class="container">
+			<h4>Directors</h4>
+			<table class="table danger table-bordered">
+				<thead>
+					<th>ID</th>
+					<th>Name</th>
+					<th>CorpID</th>
+					<th>charID</th>
+					<th width="225px">Actions</th>
+				</thead>
+				<tbody>
+					<?php  foreach ($directors as $char): ?>
+						<tr name="<?php echo $char['rowid']; ?>">
+							<td><?php echo $char['rowid']; ?></td>
+							<td><span class="character_field" name="<?php  echo $char["charName"]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $char['corpID'];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $char['charID']?>_32.jpg);"><?php  echo $char['charName']; ?></span></td>
+							<td><?php echo $char['corpID']; ?></td>
+							<td><?php echo $char['charID']; ?></td>
+							<td><a href="javascript:void(0)" onclick="removeDirector(this)">Remove Director</a></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+			<h4>Officers</h4>
+			<table class="table danger table-bordered">
+				<thead>
+					<th>ID</th>
+					<th>Name</th>
+					<th>CorpID</th>
+					<th>charID</th>
+					<th width="225px">Actions</th>
+				</thead>
+				<tbody>
+					<?php  foreach ($officers as $char): ?>
+						<tr name="<?php echo $char['rowid']; ?>">
+							<td><?php echo $char['rowid']; ?></td>
+							<td><span class="character_field" name="<?php  echo $char["charName"]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $char['corpID'];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $char['charID']?>_32.jpg);"><?php  echo $char['charName']; ?></span></td>
+							<td><?php echo $char['corpID']; ?></td>
+							<td><?php echo $char['charID']; ?></td>
+							<td><a href="javascript:void(0)" onclick="removeOfficer(this)">Remove Officer</a> - <a href="javascript:void(0)" onclick="giveDirector(this)">Give Director</a></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+			<h4>Scrubs</h4>
+			<table class="table danger table-bordered">
+				<thead>
+					<th>ID</th>
+					<th>Name</th>
+					<th>CorpID</th>
+					<th>charID</th>
+					<th width="225px">Actions</th>
+				</thead>
+				<tbody>
+					<?php  foreach ($scrubs as $char): ?>
+						<tr name="<?php echo $char['rowid']; ?>">
+							<td><?php echo $char['rowid']; ?></td>
+							<td><span class="character_field" name="<?php  echo $char["charName"]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $char['corpID'];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $char['charID']?>_32.jpg);"><?php  echo $char['charName']; ?></span></td>
+							<td><?php echo $char['corpID']; ?></td>
+							<td><?php echo $char['charID']; ?></td>
+							<td><a href="javascript:void(0)" onclick="giveOfficer(this)">Make Officer</a> - <a href="javascript:void(0)" onclick="giveDirector(this)">Make Director</a></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		
+		<?php include "templates/footer.html";?>
+		<?php include "templates/scripts.html";?>
+		<script>
+			var giveOfficer = function (el) {
+				var id = $(el).parents('tr').attr('name');
+				$.post("", {character: id, action: "giveOfficer"});
+				location.reload();
+			}
+			var removeOfficer = function (el) {
+				var id = $(el).parents('tr').attr('name');
+				$.post("", {action: "removeOfficer", character: id});
+				location.reload();
+			}
+			var giveDirector = function (el) {
+				var id = $(el).parents('tr').attr('name');
+				$.post("", {action: "giveDirector", character: id});
+				location.reload();
+			}
+			var removeDirector = function (el) {
+				var id = $(el).parents('tr').attr('name');
+				$.post("", {action: "removeDirector", "character": id});
+				location.reload();
+			}
+		</script>
+	</body>
+</html>
+

@@ -2,11 +2,11 @@
 	require_once('classes/IGB.php');
 	function trust() {
 		$pageTitle = "Trust";
-		$IGB=IGB::getInstance();
+		$charInfo=CharacterInformation::getInstance();
   		if (!isset($_GET['from'])) {
 			$_GET['from'] = "/";
 		}
-		if (!$IGB->used || $IGB->trusted) {
+		if (!$charInfo->used || $charInfo->trusted) {
     		#header("location: " . $_GET['from']);
   		}
 

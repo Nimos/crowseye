@@ -2,7 +2,7 @@
 function fittingHelp() {
 		
 	$pageTitle = "Fittings";
-	$IGB = IGB::getInstance();
+	$charInfo = CharacterInformation::getInstance();
 	
 	$fittings['Armor'] = array(
 		array(
