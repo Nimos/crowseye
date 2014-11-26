@@ -3,7 +3,7 @@ function syncLootSheet() {
 	data.sheetID = sheetID;
 	data.entries = [];
 	data.totalIsk = $('#totalIsk').val();
-	if (data.totalIsk == NaN) data.totalIsk = 0;
+	if (isNaN(data.totalIsk)) data.totalIsk = 0;
 	data.totalSites = $('#sitesRan').val();
 	$('tr.entry').each(function () {
 		var entry = {};
@@ -12,6 +12,7 @@ function syncLootSheet() {
 		entry.sites = $(this).find('input[name=sites]').val();
 		entry.role = $(this).find('option:selected').text();
 		entry.isk = $(this).find('input[name=isk]').val();
+		if (isNaN(entry.isk)) entry.isk = 0;
 		data.entries.push(entry);
 	});
 
@@ -90,7 +91,9 @@ var updateIsk = function () {
 	});
 
 	for (rowid in points) {
-		$('tr[name='+rowid+']').find('input[name=isk]').val(Math.floor((points[rowid]/totalpoints)*total));
+		var newisk = Math.floor((points[rowid]/totalpoints)*total);
+		if (isNaN(newisk)) newisk = 0;
+		$('tr[name='+rowid+']').find('input[name=isk]').val(newisk);
 	}
 
 
