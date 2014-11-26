@@ -196,7 +196,7 @@ function addWh (wh) {
 		row+= '  </td>';
 		row+= '  <td colspan="7">';
 		row+= '    <div class="info">';
-		row+= '      <input class="delete" id="'+wh.id+'" type="password" placeholder="director delete"></input>';
+		row+= '      <button class="delete button" id="'+wh.id+'">Delete Wormhole</button>';
 		row+= '      <h4>Additional Information</h4>';
 		row+= '      <span><strong>Signature ID:</strong> '+wh.sig+'</span>';
 		row+= '    </div>';
@@ -241,10 +241,8 @@ function addWh (wh) {
 		$("tbody.holes:last").append(row);;
 	}
 
-	$(".delete").keyup(function (e) {
-    	if (e.keyCode == 13) {
-        	$.post('/api/delete', {id: $(this).attr('id'), pw: $(this).val()});
-    	}
+	$(".delete").click(function (e) {
+        $.post('/api/delete', {id: $(this).attr('id')});
 	});
 
 	if (wh.effect) {

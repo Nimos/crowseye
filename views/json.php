@@ -54,60 +54,13 @@
 	}
 
 	function jsonDelete ($args) {
-		if ($_POST['pw'] === $GLOBALS['directorPassword']) {
+		$charInfo=CharacterInformation::getInstance();
+		if ($charInfo->officer) {
 			Wormhole::removeHoleById($_POST['id']);
 		}
 	}
 
 
-
-
-	function jsonKills ($systems, $after) {
-		$charInfo=CharacterInformation::getInstance();
-		$kills = array();
-		foreach ($systems as $system) {
-			$cache_file = 'cache/dotlan/'.$system;
-			if(file_exists($cache_file)) {
-				$cache = file_get_contents($cache_file);
-				$modified = substr($cache, 0, 10);
-
-				if ($modified < $after) continue;
-
-	  			if((time() - $modified) > 900) {
-	  				$result = Database::filterBy("holes", ' rowid="'.SQLite3::escapeString($system).'"');
-	  				$name = $result[0]['name'];
-	    	 		$dotlan = @file_get_contents('http://evemaps.dotlan.net/system/'.$name);
-	    	 		file_put_contents($cache_file, time().$dotlan);
-	  			} else {
-	  				$dotlan = $cache;
-	  			}
-			} else {
-	  			$result = Database::filterBy("holes", ' rowid="'.SQLite3::escapeString($system).'"');
-	  			$name = $result[0]['name'];
-	    	 	$dotlan = @file_get_contents('http://evemaps.dotlan.net/system/'.$name);
-	    	 	file_put_contents($cache_file, time().$dotlan);
-			}
-				
-			if ($dotlan) {
-	
-				$ship_kills = '/<b>Ship Kills<\/b>.*\s*.*t">([0-9]*)<\/.*\s.*t">([0-9]*)</i';
-				$npc_kills = '/<b>NPC Kills<\/b>.*\s*.*t">([0-9]*)<\/.*\s.*t">([0-9]*)</i';
-				preg_match_all($ship_kills, $dotlan, $shipkills);
-				preg_match_all($npc_kills, $dotlan, $npckills);
-
-			} else {
-				$shipkills = array("-1","-1","-1");
-				$npckills = array("-1","-1","-1");
-			}
-
-
-			$kills[$system]['name'] = $system;
-			$kills[$system]['ship'] = array($shipkills[1],$shipkills[2]);
-			$kills[$system]['npc']  = array($npckills[1],$npckills[2]);
-		}
-		return $kills;
-
-	}
 
 	function jsonComments($args) {
 		if (!isset($_POST['text'])) return;
