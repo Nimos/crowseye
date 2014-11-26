@@ -37,7 +37,6 @@
 		if (isset ($_POST['after'])) $after = $_POST['after'];
 		//file_put_contens("log.error", $args[1], FILE_APPEND);
 		$result = array(
-			"kills" => jsonKills($holes, $after),
 			"comments" => jsonGetComments($holes, $after),
 			"sites" => jsonGetSites($holes, $after),
 			"igbheaders" => $charInfo=CharacterInformation::getInstance()

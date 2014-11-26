@@ -86,33 +86,6 @@ function getWhData () {
 		});
 
 		$.post("/api/information/"+result.join(','), "after="+lastUpdate, function (data) {
-			$.each(data.kills, function (hole, kills) {
-				if (debug) console.log("debug");
-				var activity;
-				var error = false;
-				var warningclass="";
-				if (kills.ship[0] > 0 || kills.npc[0] > 0) {
-					activity = "High"; 
-					warningclass="danger";
-				} else if (kills.ship[1] > 0 || kills.npc[1] > 0) {
-					activity = "Medium";
-					warningclass="warning";
-				} else if (kills.ship[1] == -1) {
-					activity = "ERROR";
-					error = true;
-				} else {
-					activity = "Low";
-				}
-				if (!error) {
-					$('tr#'+hole).removeClass('danger', 'warning')
-						.addClass(warningclass)
-						.find('td.activity')
-						.removeClass('activity_unknown activity_Low activity_High activity_Medium')
-						.addClass('activity_'+activity)
-						.children('span').text(activity)
-						.attr('data-original-title', "NPC Kills: "+kills.npc[0]+" / "+kills.npc[1]+"\nShip Kills: "+kills.ship[0]+" / "+kills.ship[1]).data('tooltip',false);
-				}				
-			});
 
 			$.each(data.comments, function (hole, comments) {
 				if (debug) console.log("debug");
@@ -183,7 +156,6 @@ function addWh (wh) {
 		row+= '  <td class="class '+wh.class+'_wh">'+wh.class+'</td>';
 		row+= '  <td class="wh_name">'+wh.name+'  <a class="tp" data-toggle="tooltip" title="Open on wh.pasta.gg" onclick="event.stopPropagation()" target="_blank" href="http://wh.pasta.gg/'+wh.name+'">  <img src="static/gfx/wormholes.png" width="16" height="16"></a></td>';
 		row+= '  <td class="siteNumber">'+siteNumber+'</td>';
-		row+= '  <td class="activity"><span class="tp" data-toggle="tooltip" title="Loading..."><img src="/static/gfx/spinner.gif" /></span></td>';
 		row+= '  <td class="reporter">';
 		row+= '    <span class="character_field" name="'+wh.reporter[1]+'" style="background-image: url(http://image.eveonline.com/corporation/'+wh.reporter[2]+'_32.png), url(\'http://image.eveonline.com/character/'+wh.reporter[1]+'_32.jpg\')">'+wh.reporter[0]+'</span>';
 		row+= '  </td>';
@@ -222,7 +194,7 @@ function addWh (wh) {
 		row+= '      </div>';
 		row+= '    </div>';
 		row+= '  </td>';
-		row+= '  <td colspan="5">';
+		row+= '  <td colspan="7">';
 		row+= '    <div class="info">';
 		row+= '      <input class="delete" id="'+wh.id+'" type="password" placeholder="director delete"></input>';
 		row+= '      <h4>Additional Information</h4>';
