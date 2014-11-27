@@ -25,4 +25,4 @@
     
   );
 
-  $staticUrl = "/static/"
+  $staticUrl = "/static/";
