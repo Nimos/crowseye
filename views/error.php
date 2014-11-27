@@ -21,5 +21,3 @@
 		include("templates/error.html");
 		exit();
 	}
-
-?>

@@ -26,5 +26,3 @@
   );
 
   $staticUrl = "/static/"
-
-?>

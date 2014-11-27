@@ -100,4 +100,3 @@
 
 		include('templates/top.html');
 	}
-	?>

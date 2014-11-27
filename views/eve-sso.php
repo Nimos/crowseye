@@ -79,5 +79,3 @@
 		header("Location: /");
 
 	}
-
-?>

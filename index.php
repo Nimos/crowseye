@@ -33,4 +33,3 @@
 
 
   requestError(404, $_SERVER);
-?>

@@ -20,5 +20,3 @@
 		$charInfo = CharacterInformation::getInstance();
 		include("templates/layout.html");
 	}
-
-	?>
