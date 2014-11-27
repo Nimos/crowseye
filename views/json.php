@@ -32,10 +32,15 @@
 	}
 
 	function jsonInformation($args) {
+		if (!$args[1]) {
+			echo "{}";
+			return;
+		} 
 		$holes = explode(",",$args[1]);
+		
 		$after = 0;
 		if (isset ($_POST['after'])) $after = $_POST['after'];
-		//file_put_contens("log.error", $args[1], FILE_APPEND);
+		
 		$result = array(
 			"comments" => jsonGetComments($holes, $after),
 			"sites" => jsonGetSites($holes, $after),
