@@ -136,7 +136,52 @@
 
 			}
 
-			if (!isset($_COOKIE['home'])) $_COOKIE['home'] = "GJ0-OJ";
+			$jumpArray = array(
+				strtolower("GE-8JV")	=> "0",
+				strtolower("AX-DOT")	=> "1",
+				strtolower("MUXX-4")	=> "2",
+				strtolower("E1-4YH")	=> "3",
+				strtolower("B-XJX4")	=> "4",
+				strtolower("TLHB-Z")	=> "4",
+				strtolower("AOK-WQ")	=> "4",
+				strtolower("E3-SDZ")	=> "5",
+				strtolower("3-OKDA")	=> "1",
+				strtolower("MY-W1V")	=> "2",
+				strtolower("8B-2YA")	=> "3",
+				strtolower("SNFV-I")	=> "4",
+				strtolower("HP-64T")	=> "5",
+				strtolower("V2-VC2")	=> "5",
+				strtolower("CX65-5")	=> "5",
+				strtolower("YHN-3K")	=> "1",
+				strtolower("3GD6-8")	=> "2",
+				strtolower("4M-HGL")	=> "2",
+				strtolower("DSS-EZ")	=> "3",
+				strtolower("MB4D-4")	=> "4",
+				strtolower("LGK-VP")	=> "5",
+				strtolower("V-3YG7")	=> "1",
+				strtolower("HY-RWO")	=> "2",
+				strtolower("6X7-JO")	=> "3",
+				strtolower("A-803L")	=> "4",
+				strtolower("GJ0-OJ")	=> "5",
+				strtolower("I-8D0G")	=> "5",
+				strtolower("EX6-AO")	=> "3",
+				strtolower("Q-U96U")	=> "4",
+				strtolower("QETZ-W")	=> "5",
+				strtolower("WFC-MY")	=> "5",
+				strtolower("X4-WL0")	=> "5",
+				strtolower("B-3QPD")	=> "2",
+				strtolower("U-QVWD")	=> "3",
+				strtolower("36N-HZ")	=> "4",
+				strtolower("QSM-LM")	=> "5",
+				strtolower("9KOE-A")	=> "5",
+				strtolower("0SHT-A")	=> "4",
+				strtolower("V-IUEL")	=> "5",
+				strtolower("D87E-A")	=> "5",
+				strtolower("JWJ-P1")	=> "5"
+
+			);
+
+			/*if (!isset($_COOKIE['home'])) $_COOKIE['home'] = "GJ0-OJ";
 
 
 			if ($_COOKIE['home'] == "Ratillose") {
@@ -335,8 +380,8 @@
 					strtolower("Pain") => "5",
 					strtolower("Covryn") => "5",
 					strtolower("Ostingele") => "5"
-				);*///dont need this anymore
-			}
+				);///dont need this anymore
+			} */
 
 			if (isset($jumpArray[strtolower($system)])) {
 				return $jumpArray[strtolower($system)];
