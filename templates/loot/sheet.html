@@ -33,6 +33,7 @@
            <label class="" for="wormhole">Wormhole Name</label>
            <input readonly type="text" class="form-control" id="wormhole" value="<?php echo $sheet['hole']; ?>">
           </div>
+          <br />
           <div class="form-group">
            <label class="" for="sitesRan">Completed Sites</label>
            <input <?php if ($readonly) print "readonly"; ?> type="number" value="0" class="form-control" id="sitesRan" placeholder="" value="<?php echo $sheet['sites']; ?>">
@@ -41,7 +42,10 @@
            <label class="" for="totalIsk">Total Isk</label>
            <input <?php if ($readonly) print "readonly"; ?> type="text" value="0" class="form-control" id="totalIsk" placeholder="" value="<?php echo $sheet['isk']; ?>">
           </div>
-
+          <div class="form-group">
+            <label class="" for="corpCut">Stahp Cut</label>
+            <input readonly type="text" value="0" class="form-control" id="corpCut" placeholder="" value="">
+           </div>
          </div>
          <div class="panel-heading">
            Fleet Members

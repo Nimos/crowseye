@@ -38,11 +38,13 @@ function viewLootSheet ($args) {
 
 	$roles = array (
 		"FC" => 1.25,
+		"Logi" => 1.0,
+		"DPS 125%" => 1.25,
+		"DPS" => 1.0,
+		"DPS 75%" => 0.75,
 		"Salvager" => 1.0,
-		"Logi" => 1,
-		"DPS" => 1,
-		"Badscout" => 0.5,
-		"Finder" => 0.25
+		"Scout" => 0.5,
+		"Finder" => 0
 	);
 
 	include('templates/loot/sheet.html');

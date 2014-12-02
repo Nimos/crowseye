@@ -92,12 +92,26 @@ var updateIsk = function () {
 	var sitenumber = parseInt($('#sitesRan').val()); 
 	var totalpoints = 0;
 	var points = {};
+
+	var findersfee = Math.floor(Math.min(50000000, total*.05));
+	var corpcut = Math.floor(total*.25);
+	total -= findersfee;
+	total -= corpcut;
+
+	$('#corpCut').val(corpcut);
+
 	$('tr.entry').each(function () {
 		var sites = $(this).find('input[name=sites]').val();
 		var share = $(this).find('option:selected').val();
 		var mypoints = sites*share;
-		points[$(this).attr('name')] = mypoints;
 		totalpoints += mypoints;
+
+		console.log(share);
+		if (share == 0) {
+			$(this).find('input[name=isk]').val(findersfee);
+		} else {
+			points[$(this).attr('name')] = mypoints;
+		}
 	});
 
 	for (rowid in points) {
@@ -105,6 +119,8 @@ var updateIsk = function () {
 		if (isNaN(newisk)) newisk = 0;
 		$('tr[name='+rowid+']').find('input[name=isk]').val(newisk);
 	}
+
+
 
 
 
