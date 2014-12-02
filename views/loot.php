@@ -41,9 +41,7 @@ function viewLootSheet ($args) {
 		"Salvager" => 1.0,
 		"Logi" => 1,
 		"DPS" => 1,
-		"Scout" => 1,
-		"BADSCOUT" => 0.5,
-		"Newbiescout" => 0.5,
+		"Badscout" => 0.5,
 		"Finder" => 0.25
 	);
 

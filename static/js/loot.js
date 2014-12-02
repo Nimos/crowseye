@@ -48,6 +48,13 @@ updateTable = function(data) {
 		if (!exists) {
 			element.insertBefore('tr:last');
 			$('.template').find('tr.entry').remove();
+			element.find('input,select').each(function () {
+				$(this).change(function () {
+					updateIsk();
+				}).keyup(function () {
+					updateIsk();
+				});
+			;});
 		}
 
 	}
@@ -76,6 +83,9 @@ $('input').change(function () {
 $('input').keyup(function () {
 	$(this).trigger('change');
 });
+$('select').click(function () {
+	$(this).trigger('change');
+})
 
 var updateIsk = function () {
 	var total = parseInt($('#totalIsk').val());
