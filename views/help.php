@@ -211,6 +211,8 @@ function getGuides() {
 	$guides = array(
 		array("intro", "Intro", "static/help/intro.html", 0),
 		array("skills", "Skill Plan", "static/help/skills.html", 0),
+		array("loaner", "Loan Program", "static/help/loan.html", 0),
+		array("guide", "Guide to running WH Sites", "static/help/guide.html", 0),
 	);
 	return $guides;
 }
