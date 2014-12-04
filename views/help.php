@@ -1,10 +1,10 @@
 <?php
 function fittingHelp() {
-		
-	$pageTitle = "Fittings";
-	$charInfo = CharacterInformation::getInstance();
+	header('Location: http://fleet-up.com/Doctrine/Index/42426');
+	#$pageTitle = "Fittings";
+	#$charInfo = CharacterInformation::getInstance();
 	
-	$fittings['Armor'] = array(
+	/*$fittings['Armor'] = array(
 		array(
 			"Gnosis - Newbie Edition", 
 			"Gnosis", 
@@ -143,7 +143,7 @@ function fittingHelp() {
 			"", //dna
 			"", //eft
 		),
-		*/
+		
 	);
 	$fittings['Salvage'] = array(
 		array(
@@ -182,9 +182,9 @@ function fittingHelp() {
 			"16242:4435;2:8749;1:5841;1:5973;1:11370;1:24348;1:25861;6:31083;3::", //dna
 			"[Thrasher, Thrasher - WH Salvage]\n\nPhotonic CPU Enhancer I\nEmergency Damage Control I\n\nEutectic Capacitor Charge Array\nEutectic Capacitor Charge Array\nLimited 1MN Microwarpdrive I\n\nPrototype Cloaking Device I\nSmall Tractor Beam I\nSalvager I\nSalvager I\nSalvager I\nSalvager I\nSalvager I\nSalvager I\n\nSmall Salvage Tackle I\nSmall Salvage Tackle I\nSmall Salvage Tackle I\n", //eft
 		),	
-	);
+	);*/
 
-	include("templates/help/fittings.html");
+	#include("templates/help/fittings.html");
 }
 
 function embeddedGdoc($args) {
@@ -209,6 +209,8 @@ function helpLanding() {
 
 function getGuides() {
 	$guides = array(
+		array("intro", "Intro", "static/help/intro.html", 0),
+		array("skills", "Skill Plan", "static/help/skills.html", 0),
 	);
 	return $guides;
 }

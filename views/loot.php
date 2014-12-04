@@ -40,8 +40,8 @@ function viewLootSheet ($args) {
 		"FC" => 1.25,
 		"Logi" => 1.0,
 		"DPS 125%" => 1.25,
-		"DPS" => 1.0,
 		"DPS 75%" => 0.75,
+		"DPS" => 1.0,
 		"Salvager" => 1.0,
 		"Scout" => 0.5,
 		"Finder" => 0
