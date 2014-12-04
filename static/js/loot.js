@@ -87,6 +87,13 @@ $('select').click(function () {
 	$(this).trigger('change');
 })
 
+var addCommas = function (val) {
+    while (/(\d+)(\d{3})/.test(val.toString())){
+      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    }
+    return val;
+}
+
 var updateIsk = function () {
 	var total = parseInt($('#totalIsk').val());
 	var sitenumber = parseInt($('#sitesRan').val()); 
@@ -94,11 +101,11 @@ var updateIsk = function () {
 	var points = {};
 
 	var findersfee = Math.floor(Math.min(50000000, total*.05));
-	var corpcut = Math.floor(total*.25);
+	var corpcut = Math.floor(total*.05);
 	total -= findersfee;
 	total -= corpcut;
 
-	$('#corpCut').val(corpcut);
+	$('#corpCut').val(addCommas(corpcut));
 
 	$('tr.entry').each(function () {
 		var sites = $(this).find('input[name=sites]').val();
@@ -108,7 +115,7 @@ var updateIsk = function () {
 
 		console.log(share);
 		if (share == 0) {
-			$(this).find('input[name=isk]').val(findersfee);
+			$(this).find('input[name=isk]').val(addCommas(findersfee));
 		} else {
 			points[$(this).attr('name')] = mypoints;
 		}
@@ -117,7 +124,7 @@ var updateIsk = function () {
 	for (rowid in points) {
 		var newisk = Math.floor((points[rowid]/totalpoints)*total);
 		if (isNaN(newisk)) newisk = 0;
-		$('tr[name='+rowid+']').find('input[name=isk]').val(newisk);
+		$('tr[name='+rowid+']').find('input[name=isk]').val(addCommas(newisk));
 	}
 
 
