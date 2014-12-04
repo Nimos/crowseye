@@ -139,6 +139,7 @@ var addMember = function () {
 }
 
 var togglePaid = function () {
+	syncLootSheet();
 	$.post(location.href+"/update",  {action: "togglePaid"});
 	location.reload();
 }

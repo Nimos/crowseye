@@ -26,7 +26,7 @@
           </tr>
         </table>
         <div class="panel-heading">
-          Totals
+          Totals <?php if ($paid):?>- <span style="color: green">This Sheet has been marked as Paid</span><?php endif ?>
         </div>
         <div class="form-inline panel-body">
           <div class="form-group">
@@ -62,12 +62,12 @@
                 <th></th>
     				  </thead>
               <tbody>
-                <?php if (!$readonly): ?>
-                  <tr>
+                <tr>
+                  <?php if (!$readonly): ?>
                     <td colspan="3" style="text-align: center;"><button onclick="addMember()" class="btn btn-default">Add Member</button></td>
                     <td colspan="1"> <button onclick="togglePaid()" class="btn">Mark as <?php echo $paid ? "Unpaid" : "Paid" ?></button></td>
-                  </tr>
-                <?php endif ?>
+                  <?php endif ?>
+                </tr>
               </tbody>
             </table>
           </div>
