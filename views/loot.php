@@ -146,7 +146,7 @@ function userLootList() {
 	$pageTitle = "My Loot Sheets";
 	date_default_timezone_set('UTC');
 
-	$sheets = Database::getObjects('SELECT DISTINCT players._rowid_, lootentries.isk AS myisk, lootentries.sites AS mysites, role,loots.*,loots.rowid,loots.sites, players.charName AS fc FROM lootentries JOIN players ON loots.fc=players._rowid_ JOIN loots ON loots.rowid=lootentries.sheet WHERE lootentries.name ="'.Sqlite3::escapeString($charInfo->charName).'" GROUP BY lootentries.sheet;');
+	$sheets = Database::getObjects('SELECT DISTINCT players._rowid_, lootentries.isk AS myisk, lootentries.sites AS mysites, role,loots.*,loots.rowid,loots.sites, players.charName AS fc FROM lootentries JOIN players ON loots.fc=players._rowid_ JOIN loots ON loots.rowid=lootentries.sheet WHERE lootentries.name ="'.Sqlite3::escapeString($charInfo->charName).'" GROUP BY lootentries.sheet ORDER BY loots.rowid DESC;');
 	
 	include('templates/loot/list.html');
 
@@ -161,7 +161,7 @@ function adminLootList() {
 		requestError(403);
 	}
 
-	$sheets = Database::getObjects('SELECT DISTINCT players._rowid_, lootentries.isk AS myisk, lootentries.sites AS mysites, role,loots.*,loots.rowid,loots.sites, players.charName AS fc FROM lootentries JOIN players ON loots.fc=players._rowid_ JOIN loots ON loots.rowid=lootentries.sheet GROUP BY lootentries.sheet;');
+	$sheets = Database::getObjects('SELECT DISTINCT players._rowid_, lootentries.isk AS myisk, lootentries.sites AS mysites, role,loots.*,loots.rowid,loots.sites, players.charName AS fc FROM lootentries JOIN players ON loots.fc=players._rowid_ JOIN loots ON loots.rowid=lootentries.sheet GROUP BY lootentries.sheet ORDER BY loots.rowid DESC;');
 	
 	include('templates/loot/adminlist.html');
 }
