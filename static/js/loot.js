@@ -137,3 +137,8 @@ var addMember = function () {
 	syncLootSheet();
 	$.get(location.href+"/addMember", function (data) {updateTable(eval(("a = "+data)));})
 }
+
+var togglePaid = function () {
+	$.post(location.href+"/update",  {action: "togglePaid"});
+	location.reload();
+}

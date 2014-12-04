@@ -25,7 +25,7 @@
                     $this->db->exec('CREATE TABLE sites (hole INT, type TEXT, name TEXT, sig TEXT, time INT);');
 
                     #loot sheet master
-                    $this->db->exec('CREATE TABLE loots (hole TEXT, fc INT, date INT, sites INT, isk INT);');
+                    $this->db->exec('CREATE TABLE loots (hole TEXT, fc INT, date INT, sites INT, isk INT, status INT);');
 
                     #loot sheet participants
                     $this->db->exec('CREATE TABLE lootentries (sheet INT, name TEXT, sites INT, role TEXT);');

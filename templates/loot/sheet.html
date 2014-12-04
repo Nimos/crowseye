@@ -64,7 +64,8 @@
               <tbody>
                 <?php if (!$readonly): ?>
                   <tr>
-                    <td colspan="4" style="text-align: center;"><button onclick="addMember()" class="btn btn-default">Add Member</button></td>
+                    <td colspan="3" style="text-align: center;"><button onclick="addMember()" class="btn btn-default">Add Member</button></td>
+                    <td colspan="1"> <button onclick="togglePaid()" class="btn">Mark as <?php echo $paid ? "Unpaid" : "Paid" ?></button></td>
                   </tr>
                 <?php endif ?>
               </tbody>
