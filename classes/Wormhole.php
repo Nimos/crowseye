@@ -443,7 +443,7 @@
 		}
 
 		public static function addComment($playerID, $wh, $comment) {
-			$$charInfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($playerID).'"');
+			$charInfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($playerID).'"');
 			if (count($$charInfo) == 0) {
 				$id = Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0,0);");	
 			} else {

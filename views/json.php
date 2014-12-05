@@ -23,7 +23,7 @@
 			$whid = $wh->save();
 			if ($whid != -1) {
 				if ($_POST['comment'] != "") {
-					Wormhole::addComment(CharacterInformation::getInstance()->charID, $whid, $_POST['comment']);
+					Wormhole::addComment($charInfo->charID, $whid, $_POST['comment']);
 				}
 			}
 			echo($whid);
