@@ -49,7 +49,7 @@
       					<th>#Combat Sites</th>
       					<th>Reported By</th>
       					<th>Reported</th>
-                <th><?php  if ($charInfo->trusted): ?><a onclick="openAddModal()" id="plusWh" href="#">+</a><?php  endif ?></th>
+                <th><?php  if ($charInfo->trusted || $charInfo->authed): ?><a onclick="openAddModal()" id="plusWh" href="#">+</a><?php  endif ?></th>
       				</tr>
       			</thead>
       			<tbody class="holes">
@@ -61,6 +61,7 @@
         </div>
  		</div>
   </div>
+  <?php  if ($charInfo->trusted || $charInfo->authed) { addModal(); }?>
     <?php  include "templates/footer.html"; ?>
     <?php  include "templates/scripts.html"; ?>
     <script>

@@ -183,7 +183,7 @@ function addWh (wh) {
 		});
 		row+= '          </tbody>';
 		row+= '        </table>';
-		if (isIngameBrowser) {
+		if (isIngameBrowser || isAuthed) {
 			row+= '     <hr>';
 			row+= '     <div class="form-group">';
 			row+= '       <label for="sites">Update Signature List</label>';
@@ -210,7 +210,7 @@ function addWh (wh) {
 			row+= '</li>';
 		});
 		row+= '        <li class="form-group">';
-		if (isIngameBrowser) {
+		if (isIngameBrowser || isAuthed) {
 			row+= '          <textarea placeholder="Your Comment..." class="form-control write_comment list-group-item"></textarea>';
 			row+= '          <button class="btn-xs btn-default comment" style="margin-top: 5px;">Send</button>';
 		}

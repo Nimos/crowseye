@@ -18,7 +18,7 @@
 			$whs = Wormhole::getObjects();
 			echo(json_encode($whs));
 		} else if ($_SERVER['REQUEST_METHOD'] == "POST") {
-			if (!$charInfo->trusted) return;
+			if (!$charInfo->trusted && !$charInfo->authed) return;
 			$wh = new Wormhole(-1, $_POST['systemName'], $_POST['wormholeName'], array(CharacterInformation::getInstance()->charID,CharacterInformation::getInstance()->charName,CharacterInformation::getInstance()->corpID), time(), Wormhole::parseScan($_POST['sites']), "", $_POST['sig']);
 			$whid = $wh->save();
 			if ($whid != -1) {
@@ -52,6 +52,7 @@
 
 	function jsonUpdateSites ($args) {
 		$hole = $args[1];
+		if (!$charInfo->trusted && !$charInfo->authed) return;
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$sites = Wormhole::parseScan($_POST['sites']);
 			Wormhole::saveSites($hole, $sites);
@@ -71,7 +72,7 @@
 		if (!isset($_POST['text'])) return;
 		$hole = $args[1];
 		$charInfo=CharacterInformation::getInstance();
-		if (!$charInfo->trusted) return;
+		if (!$charInfo->trusted && !$charInfo->authed) return;
 		Wormhole::addComment($charInfo->charID, $hole, $_POST['text']);
 	}
 

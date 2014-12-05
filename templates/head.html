@@ -4,6 +4,7 @@
     	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
    		<link rel="stylesheet" href="<?php  echo $GLOBALS['staticUrl']; ?>css/wh.css">
    		<script>
-   			var isIngameBrowser = <?php  if ($charInfo->trusted) {echo "true";} else {echo "false";}; ?>;
+   			var isIngameBrowser = <?php echo $charInfo->trusted ? "true" : "false" ?>;
+   			var isAuthed = <?php echo $charInfo->authed ? "true" : "false" ?>;
    		</script>
   	</head>

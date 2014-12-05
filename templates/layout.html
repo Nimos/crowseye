@@ -30,7 +30,7 @@
               <li><a href="/help/fittings">Fittings</a></li>
             </ul>
           </li>
-        <?php  if ($charInfo->trusted && isAuthenticated()): ?>
+        <?php  if ($charInfo->trusted && isAuthenticated() || $charInfo->authed): ?>
           <li><a href="#" onclick="openAddModal()">Add Wormhole</a></li>
         <?php  endif; ?>
         <?php if ($charInfo->officer): ?>
@@ -56,5 +56,5 @@
   </div>
 </div>
 
-<?php  if ($charInfo->trusted) { addModal(); }?>
+
   
