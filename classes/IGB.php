@@ -85,7 +85,14 @@
                     if ($this->director) $this->officer = 1;
 
                 } else {
-                    Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->charName)."','".SQLite3::escapeString($this->charID)."',0,0,0);");
+                    $api_info = file_get_contents("https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=".$this->charID);
+                    if (preg_match("@<corporationID>([0-9]*)</corporationID>@", $api_info, $matches)) {
+                        $this->corpID = $matches[1];
+                    } else {
+                        $this->corpID = 0;
+                    }
+
+                    Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->charName)."','".SQLite3::escapeString($this->charID)."','".SQLite3::escapeString($this->corpID)."',0,0);");
                 }
             }
 
