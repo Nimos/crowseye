@@ -444,10 +444,10 @@
 
 		public static function addComment($playerID, $wh, $comment) {
 			$charInfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($playerID).'"');
-			if (count($$charInfo) == 0) {
+			if (count($charInfo) == 0) {
 				$id = Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0,0);");	
 			} else {
-				$id = $$charInfo[0]['rowid'];
+				$id = $charInfo[0]['rowid'];
 			}
 
 			$rid = Database::putObject("comments", "(hole, author, time, text) VALUES ('".SQLite3::escapeString($wh)."','".SQLite3::escapeString($id)."','".SQLite3::escapeString(time())."','".SQLite3::escapeString($comment)."');");	
