@@ -155,6 +155,7 @@ function addWh (wh) {
 		row+= '  <td class="system">'+wh.system+'</td>';
 		row+= '  <td class="class '+wh.class+'_wh">'+wh.class+'</td>';
 		row+= '  <td class="wh_name">'+wh.name+'  <a class="tp" data-toggle="tooltip" title="Open on wh.pasta.gg" onclick="event.stopPropagation()" target="_blank" href="http://wh.pasta.gg/'+wh.name+'">  <img src="static/gfx/wormholes.png" width="16" height="16"></a></td>';
+		row+= '  <td class="sigid">'+wh.sig+'</td>';
 		row+= '  <td class="siteNumber">'+siteNumber+'</td>';
 		row+= '  <td class="reporter">';
 		row+= '    <span class="character_field" name="'+wh.reporter[1]+'" style="background-image: url(http://image.eveonline.com/corporation/'+wh.reporter[2]+'_32.png), url(\'http://image.eveonline.com/character/'+wh.reporter[1]+'_32.jpg\')">'+wh.reporter[0]+'</span>';
@@ -198,7 +199,6 @@ function addWh (wh) {
 		row+= '    <div class="info">';
 		row+= '      <button class="delete button" id="'+wh.id+'">Delete Wormhole</button>';
 		row+= '      <h4>Additional Information</h4>';
-		row+= '      <span><strong>Signature ID:</strong> '+wh.sig+'</span>';
 		row+= '    </div>';
 		row+= '    <div style="display:none;">';
 		row+= '      <h4>Comments</h4>';
