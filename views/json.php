@@ -51,6 +51,7 @@
 	}
 
 	function jsonUpdateSites ($args) {
+		$charInfo=CharacterInformation::getInstance();
 		$hole = $args[1];
 		if (!$charInfo->trusted && !$charInfo->authed) return;
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
