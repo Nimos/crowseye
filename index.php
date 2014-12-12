@@ -9,6 +9,7 @@
   $news = "";
   $crest_clientID = "";
   $crest_secretKey = "";
+  $refreshRate = 6000;
   #END OF DEFAULTS
   
   if (file_exists("config.php")) {
