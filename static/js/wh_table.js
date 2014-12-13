@@ -51,6 +51,7 @@ function getWhData () {
 	var debug = false;
 	$.getJSON("/api/wh", function (data) {
 		if (debug) console.log("debug");
+		if (performanceMode) setTimeout(getWhData, refreshRate);
 
 		var holes = {};
 		$('tr.wh').each(function () {
@@ -85,8 +86,11 @@ function getWhData () {
 			result.push(id);
 		});
 
-		$.post("/api/information/"+result.join(','), "after="+lastUpdate, function (data) {
+		if (performanceMode) return;
 
+		$.post("/api/information/"+result.join(','), "after="+lastUpdate, function (data) {
+			setTimeout(getWhData, refreshRate);
+			
 			$.each(data.comments, function (hole, comments) {
 				if (debug) console.log("debug");
 				$.each(comments, function (id, comment) {

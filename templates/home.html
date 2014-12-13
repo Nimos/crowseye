@@ -65,8 +65,9 @@
     <?php  include "templates/footer.html"; ?>
     <?php  include "templates/scripts.html"; ?>
     <script>
+      var performanceMode = <?php echo $GLOBALS['performanceMode']; ?>;
+      var refreshRate = <?php echo $GLOBALS['refreshRate']; ?>; 
       getWhData();
-      setInterval(getWhData,<?php echo $GLOBALS['refreshRate']; ?>);
     </script>
   </body>
 </html>
