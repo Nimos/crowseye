@@ -10,7 +10,7 @@
   $crest_clientID = "";
   $crest_secretKey = "";
   $refreshRate = 6000;
-  $performanceMode = 1;
+  $performanceMode = 0;
   #END OF DEFAULTS
   
   if (file_exists("config.php")) {
