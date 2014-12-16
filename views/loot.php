@@ -27,6 +27,7 @@ function viewLootSheet ($args) {
 	$paid = $sheet["status"];
 
 	$permissions = getSheetPermissions($sheet);
+	$charInfo = CharacterInformation::getInstance();
 
 	if ($permissions == 0) {
 		requestError(403);
@@ -80,6 +81,7 @@ function updateLootSheet ($args) {
 	$id = $args[1];
 	$sheet = Database::filterBy("loots", "rowid = ".SQLite3::escapeString($id));
 	$sheet = $sheet[0];
+	$charInfo = CharacterInformation::getInstance();
 
 	$permissions = getSheetPermissions($sheet);
 
@@ -87,16 +89,14 @@ function updateLootSheet ($args) {
 		requestError(403);
 	}
 
-	if ($_SERVER['REQUEST_METHOD'] == "POST" && $permissions == 2) {
-		if (isset($_POST['action'])) {
+	if ($_SERVER['REQUEST_METHOD'] == "POST") {
+		if (isset($_POST['action']) &&  ($permissions == 2 || $charInfo->director)) {
 			if ($_POST['action'] == "togglePaid") {
-				if ($sheet['status']) {
-					Database::exec('UPDATE loots SET status=0 WHERE rowid='.Sqlite3::escapeString($id).';');
-				} else {
-					Database::exec('UPDATE loots SET status=1 WHERE rowid='.Sqlite3::escapeString($id).';');
+				if ($_POST['status'] == 0 || $_POST['status'] == 1 || $_POST['status'] == 2) {
+					Database::exec('UPDATE loots SET status='.$_POST['status'].' WHERE rowid='.Sqlite3::escapeString($id).';');
 				}
 			}
-		} else {
+		} elseif ($permissions == 2) {
 			$data = $_POST['data'];
 			Database::exec('UPDATE loots SET isk='.Sqlite3::escapeString($data['totalIsk']).', sites='.Sqlite3::escapeString($data['totalSites']).' WHERE rowid='.Sqlite3::escapeString($id).';');
 

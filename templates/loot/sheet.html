@@ -26,7 +26,7 @@
           </tr>
         </table>
         <div class="panel-heading">
-          Totals <?php if ($paid):?>- <span style="color: green">This Sheet has been marked as Paid</span><?php endif ?>
+          Totals <?php if ($paid == 1):?>- <span style="color: green">This Sheet has been marked as Paid</span><?php elseif ($paid == 2):?>- <span style="color: green">This Sheet has been marked as ready for payout</span><?php endif ?>
         </div>
         <div class="form-inline panel-body">
           <div class="form-group">
@@ -63,9 +63,11 @@
     				  </thead>
               <tbody>
                 <tr>
-                  <?php if (!$readonly): ?>
-                    <td colspan="3" style="text-align: center;"><button onclick="addMember()" class="btn btn-default">Add Member</button></td>
-                    <td colspan="1"> <button onclick="togglePaid()" class="btn">Mark as <?php echo $paid ? "Unpaid" : "Paid" ?></button></td>
+                  <?php if (!$readonly || $charInfo->director): ?>
+                    <td colspan="2" style="text-align: center;"><button onclick="addMember()" class="btn btn-default">Add Member</button></td>
+                     <td colspan="2" style="text-align: right;"><?php if ($paid != 0): ?>  <button onclick="togglePaid(0)" class="btn">Mark as Unpaid</button><?php endif ?>
+                     <?php if ($paid != 2): ?><button onclick="togglePaid(2)" class="btn">Mark as Ready for Payout</button><?php endif ?>
+                     <?php if ($paid != 1): ?>  <button onclick="togglePaid(1)" class="btn">Mark as Paid</button><?php endif ?></td>
                   <?php endif ?>
                 </tr>
               </tbody>

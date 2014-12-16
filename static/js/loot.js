@@ -138,8 +138,8 @@ var addMember = function () {
 	$.get(location.href+"/addMember", function (data) {updateTable(eval(("a = "+data)));})
 }
 
-var togglePaid = function () {
+var togglePaid = function (status) {
 	syncLootSheet();
-	$.post(location.href+"/update",  {action: "togglePaid"});
+	$.post(location.href+"/update",  {action: "togglePaid", status: status});
 	location.reload();
 }

@@ -15,13 +15,21 @@
 				</thead>
 				<tbody>
 					<?php foreach ($sheets as $sheet): ?>
-						<tr class="<?php echo $sheet['status'] == 1 ? "success" : "warning";  ?>">
+						<?php 
+							$rowClass = 'warning';
+							if ($sheet['status'] == 1) $rowClass = 'success';
+							if ($sheet['status'] == 2) $rowClass = 'ready';
+							$rowWord = 'No';
+							if ($sheet['status'] == 1) $rowWord = 'Yes';
+							if ($sheet['status'] == 2) $rowWord = 'Ready';							
+						?>
+						<tr class="<?php echo $rowClass  ?>">
 							<td><a href="/loot/<?php echo $sheet['rowid'] ?>"><?php echo date('Y-m-d H:i', $sheet['date']) ?></a></td>
 							<td><?php echo $sheet['hole'] ?></td>
 							<td><?php echo $sheet['fc'] ?></td>
 							<td><?php echo $sheet['sites'] ?></td>
 							<td><?php echo $sheet['isk'] ?></td>
-							<td><?php echo $sheet['status'] == 1 ? "Yes" : "No"; ?></td>
+							<td><?php echo $rowWord ?></td>
 						</tr>
 					<?php endforeach ?>
 				</tbody>
