@@ -19,7 +19,7 @@
 		public $id;
 
 
-		public function __construct ($id, $system, $name, $reporter, $reported, $sites, $comments, $sig = "") {
+		public function __construct ($id, $system, $name, $reporter, $reported, $sites, $comments, $sig = "", $status = 0) {
 			$this->id = $id;
 			$this->system = $system;
 			$this->name = $name;
@@ -29,6 +29,7 @@
 			$this->comments = $comments;
 			$this->sig = "not specified";
 			if ($sig)	$this->sig = $sig;
+			$this->status = $status;
 
 
 
@@ -475,7 +476,8 @@
 					$hole['reported'],
 					self::getSites($hole[0]),
 					self::getComments($hole[0]),
-					$hole['sig']
+					$hole['sig'],
+					$hole['status']
 				));
 			}
 

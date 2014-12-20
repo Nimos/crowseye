@@ -67,6 +67,12 @@
 		}
 	}
 
+	function toggleRun($args) {
+		$charInfo=CharacterInformation::getInstance();
+		if ($charInfo->officer) {
+			Database::exec('UPDATE holes SET status = '.SQLite3::escapeString($_POST['status']).' WHERE rowid = '.SQLite3::escapeString($_POST['id']).';');
+		}		
+	}
 
 
 	function jsonComments($args) {

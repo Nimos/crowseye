@@ -164,8 +164,8 @@ function addWh (wh) {
 	var warning = false;
 	var siteNumber = wh.siteNumber;
 	if (wh.sites.all.length == 0) siteNumber="No Report";
-
-	var row = '<tr jumps="'+wh.jumps+'" style="display:none;" class="wh" id="'+wh.id+'" name="'+wh.name+'">';
+	console.log(wh);
+	var row = '<tr jumps="'+wh.jumps+'" style="display:none;" class="wh'; if (wh.status) {row+=" run"}; row+='" id="'+wh.id+'" name="'+wh.name+'">';
 		row+= '	 <td class="jumps">'+wh.jumps+'</td>';
 		row+= '  <td class="system">'+wh.system+'</td>';
 		row+= '  <td class="class '+wh.class.substr(0,2)+'_wh">'+wh.class+'</td>';
@@ -213,6 +213,7 @@ function addWh (wh) {
 		row+= '  <td colspan="7">';
 		row+= '    <div class="info">';
 		row+= '      <button class="delete button" id="'+wh.id+'">Delete Wormhole</button>';
+		row+= '      <button class="run button" id="'+wh.id+'">Toggle marked as Run</button>';
 		row+= '      <h4>Additional Information</h4>';
 		row+= '    </div>';
 		row+= '    <div style="display:none;">';
@@ -257,8 +258,12 @@ function addWh (wh) {
 	}
 
 	$(".delete").click(function (e) {
-        $.post('/api/delete', {id: $(this).attr('id')});
+        $.post('/api/delete', {id: $(this).attr('id')}, function () {location.reload()});
 	});
+	$("button.run").click(function (e) {
+		var stat = $('tr.wh#'+$(this).parents('tr').attr('id')).hasClass('run') ? 0 : 1;
+        $.post('/api/toggleRun', {status: stat, id: $(this).attr('id')}, function () {location.reload()});
+	});	
 
 	if (wh.effect) {
 		var effectname = wh.effect[0].replace(" ", "").replace("	","");

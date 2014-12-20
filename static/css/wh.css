@@ -183,3 +183,8 @@ html {
   text-decoration: line-through;
   background-color: gray;
 }
+
+tr.run {
+  text-decoration: line-through;
+  color: gray;
+}

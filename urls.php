@@ -21,7 +21,8 @@
     "^/help$" => "helpLanding",
     "^/login$" => "login",
     "^/ssologin" => "ssologin",
-    "^/admin/users$" => "users"
+    "^/admin/users$" => "users",
+    "^/api/toggleRun$" => "toggleRun"
     
   );
 
