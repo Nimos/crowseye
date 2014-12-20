@@ -90,10 +90,12 @@ function updateLootSheet ($args) {
 	}
 
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
+		print "TESTSTEST";
 		if (isset($_POST['action']) &&  ($permissions == 2 || $charInfo->director)) {
+
 			if ($_POST['action'] == "togglePaid") {
 				if ($_POST['status'] == 0 || $_POST['status'] == 1 || $_POST['status'] == 2) {
-					Database::exec('UPDATE loots SET status='.$_POST['status'].' WHERE rowid='.Sqlite3::escapeString($id).';');
+					Database::exec('UPDATE loots SET proof="'.Sqlite3::escapeString($data['proof']).'", status='.$_POST['status'].' WHERE rowid='.Sqlite3::escapeString($id).';');
 				}
 			}
 		} elseif ($permissions == 2) {
@@ -126,6 +128,8 @@ function createLootSheet() {
 		Database::putObject("lootentries", "(sheet, name, sites, role) VALUES (".$sheetid.",'".SQLite3::escapeString($charInfo->charName)."',0, 'FC')");
 		$fleet = explode("\n", $_POST['initialFleet']);
 		foreach ($fleet as $member) {
+			$member = explode("\t", $member);
+			$member = $member[0];
 			$member = trim($member);
 			if ($member != $charInfo->charName && $member != "") {
 				Database::putObject("lootentries", "(sheet, name, sites, role) VALUES (".$sheetid.",'".SQLite3::escapeString($member)."',0, 'DPS')");

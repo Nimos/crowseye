@@ -140,6 +140,6 @@ var addMember = function () {
 
 var togglePaid = function (status) {
 	syncLootSheet();
-	$.post(location.href+"/update",  {action: "togglePaid", status: status});
-	location.reload();
+	var proof = $('#proof').val();
+	$.post(location.href+"/update",  {action: "togglePaid", status: status, proof: proof}, function () {location.reload()});
 }
