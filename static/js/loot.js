@@ -144,3 +144,51 @@ var togglePaid = function (status) {
 	var proof = $('#proof').val();
 	$.post(location.href+"/update",  {action: "togglePaid", status: status, proof: proof}, function () {location.reload()});
 }
+
+function ExportEmails() {
+	var EveMail='';
+    var list = $('.loot-name');
+		var listCount = list.length;
+		var jq = $([1]);  
+		for( var i = 0; i < listCount; i++) {
+		    jq.context = jq[0] = list[i];
+		    if (jq.val()!=null) {
+		    	var thisEmail=jq.val();
+			    	if (thisEmail) {
+				    		if (EveMail) {
+				    			EveMail=EveMail + ',' +thisEmail;
+				    		} else {
+				    			EveMail=thisEmail;
+				    		}
+			      } 
+				}
+		}
+  copyToClipboard(EveMail);
+}
+
+function ExportTabDel() {
+	var TabDel='';
+    var list = $('.entry');
+		var listCount = list.length;
+		var jq = $([1]);  
+		for( var i = 0; i < listCount; i++) {
+		    jq.context = jq[0] = list[i];
+			     var name = $(jq).find(".loot-name").val();
+			     var role = $(jq).find(".fused-select option:selected").text();
+			     var sites = $(jq).find(".loot-sites").val();
+			     var isk= $(jq).find(".loot-isk").val();
+				    		if (TabDel) {
+				    				if (name){
+			     						TabDel=TabDel + name+'\t'+role+'\t'+sites+'\t'+isk+'\r'
+				    				}
+				    		} else {
+			     				TabDel=name+'\t'+role+'\t'+sites+'\t'+isk+'\r'
+				    		}
+		}
+ copyToClipboard(TabDel);
+}
+
+
+function copyToClipboard(text) {
+  window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+}

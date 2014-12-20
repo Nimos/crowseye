@@ -5,21 +5,23 @@
 		<?php  showLayout();?>
     <div class="container">
   		<div class="panel panel-default">
+        <button onclick="ExportEmails()" class="btn">Export Email list</button>
+        <button onclick="ExportTabDel()" class="btn">Export To Spreadsheet</button>        
         <table class="template" style="display: none">
           <tr>
             <td><input <?php if ($readonly) print "readonly"; ?> class="form-control" style="margin-right: -10px; width:16px" type="checkbox" name="active" checked value="active"></td>
             <td >
-              <input <?php if ($readonly) print "readonly"; ?> type="text" class="loot-form" name="name" placeholder="Name"><select <?php if ($readonly) print "readonly"; ?> class="loot-form fused-select">
+              <input <?php if ($readonly) print "readonly"; ?> type="text" class="loot-form loot-name" name="name" placeholder="Name"><select <?php if ($readonly) print "readonly"; ?> class="loot-form fused-select">
               <?php  foreach ($roles as $role => $share): ?>
                 <option value="<?php  echo $share; ?>"><?php  echo $role; ?>
               <?php  endforeach; ?>
               </select>
              </td>
              <td>
-                <input <?php if ($readonly) print "readonly"; ?> type="text" style="text-align: right;" name="sites" value="0" class="form-control" />
+                <input <?php if ($readonly) print "readonly"; ?> type="text" style="text-align: right;" name="sites" value="0" class="form-control loot-sites" />
              </td>
              <td>
-                <input <?php if ($readonly) print "readonly"; ?> type="text" style="text-align: right;" name="isk" class="form-control" value="0" readonly>
+                <input <?php if ($readonly) print "readonly"; ?> type="text" style="text-align: right;" name="isk" class="form-control loot-isk" value="0" readonly>
              </td>
              <td>
              </td>
