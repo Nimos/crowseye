@@ -17,11 +17,11 @@
 					<?php foreach ($sheets as $sheet): ?>
 						<?php 
 							$rowClass = 'warning';
-							if ($sheet['status'] == 1) $rowClass = 'success';
-							if ($sheet['status'] == 2) $rowClass = 'ready';
+							if ($sheet['status'] == 2) $rowClass = 'success';
+							if ($sheet['status'] == 1) $rowClass = 'ready';
 							$rowWord = 'No';
 							if ($sheet['status'] == 1) $rowWord = 'Yes';
-							if ($sheet['status'] == 2) $rowWord = 'Ready';							
+							if ($sheet['status'] == 2) $rowWord = 'Paid to Corp';							
 						?>
 						<tr class="<?php echo $rowClass  ?>">
 							<td><a href="/loot/<?php echo $sheet['rowid'] ?>"><?php echo date('Y-m-d H:i', $sheet['date']) ?></a></td>

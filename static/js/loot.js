@@ -12,6 +12,7 @@ function syncLootSheet() {
 		entry.sites = $(this).find('input[name=sites]').val();
 		entry.role = $(this).find('option:selected').text();
 		entry.isk = $(this).find('input[name=isk]').val();
+		entry.isk = entry.isk.replace(/,/g,'');
 		if (isNaN(entry.isk)) entry.isk = 0;
 		data.entries.push(entry);
 	});
