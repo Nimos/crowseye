@@ -48,7 +48,7 @@ function handleJump(from, to) {
 }
 
 function getWhData () {
-	var debug = false;
+	var debug = true;
 	$.getJSON("/api/wh", function (data) {
 		if (debug) console.log("debug");
 		if (performanceMode) setTimeout(getWhData, refreshRate);
@@ -66,10 +66,11 @@ function getWhData () {
 				var isFiltered = (!$('button#'+$('#'+data[c].id).children("td.class").text().substr(0,2)).hasClass('btn-success'));//ugly :(
 				if (!isFiltered) holes[data[c].id][0] = 1; //keep
 			} else {
-				var isFiltered = (!$('button#'+data[c].class).hasClass('btn-success'));//ugly :(				
+				var isFiltered = (!$('button#'+data[c].class.substr(0,2)).hasClass('btn-success'));//ugly :(				
 				if (!isFiltered) holes[data[c].id] = [2, data[c]]; //add
 			}
 		}
+		if (debug) console.log(holes);
 
 		var result = [];
 		$.each(holes, function (id, hole) {
@@ -251,7 +252,7 @@ function addWh (wh) {
 
 	if (wh.effect) {
 		var effectname = wh.effect[0].replace(" ", "").replace("	","");
-		var effectreadable = wh.effect[0].substr(1);
+		var effectreadable = wh.effect[0].trim();
 		if (effectname.length > 1) {
 			$('tr.wh#'+wh.id).children('.class').append('<span class="tp effect '+effectname+'" data-toggle="tooltip" title="'+effectreadable+'">  &#9679;</span>');
 		}
