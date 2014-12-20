@@ -90,7 +90,6 @@ function updateLootSheet ($args) {
 	}
 
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
-		print "TESTSTEST";
 		if (isset($_POST['action']) &&  ($permissions == 2 || $charInfo->director)) {
 
 			if ($_POST['action'] == "togglePaid") {
