@@ -465,8 +465,8 @@
 
 		public static function getObjects ($filter = "1=1") {
 			$result = array();
-			foreach (Database::getObjects('SELECT holes.rowid,*,players._ROWID_ FROM holes JOIN players ON holes.reporter=players._ROWID_ WHERE '.$filter.';') as $hole) {
-				if (time() - $hole['reported'] > 86400) continue;
+			$oldest = time()-86400;
+			foreach (Database::getObjects('SELECT holes.rowid,*,players._ROWID_ FROM holes JOIN players ON holes.reporter=players._ROWID_ WHERE reported > '.$oldest.' AND '.$filter.';') as $hole) {
 				array_push($result, new Wormhole(
 					$hole[0],
 					$hole['system'],
