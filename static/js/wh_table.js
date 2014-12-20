@@ -2,6 +2,16 @@ var system = "";
 var lastSystem = "!";
 var lastUpdate = 0;
 
+
+// ccp pls
+if (!String.trim) {
+	String.prototype.trim = function () {
+    	return this.replace(/^\s+|\s+$/gm,'');
+	}
+}
+// update the igb
+
+
 function handleJump(from, to) {
 	var wormholeName = "";
 	var systemName = "";
