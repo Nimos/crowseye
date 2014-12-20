@@ -18,7 +18,16 @@
 				</thead>
 				<tbody>
 					<?php foreach ($sheets as $sheet): ?>
-						<tr class="<?php echo $sheet['status'] != 0 ? "success" : "warning";  ?>">
+						<?php if ($sheet['status'] == -1 && !$charInfo->officer) continue; ?>
+						<?php 
+							$rowClass = 'success';
+							if ($sheet['status'] == 0) $rowClass = 'warning';
+							if ($sheet['status'] == -1) $rowClass = 'void';
+							$rowWord = 'Yes';
+							if ($sheet['status'] == 0) $rowWord = 'No';
+							if ($sheet['status'] == -1) $rowWord = 'Void';						
+						?>
+						<tr class="<?php echo $rowClass;  ?>">
 							<td><a href="/loot/<?php echo $sheet['rowid'] ?>"><?php echo date('Y-m-d H:i', $sheet['date']) ?></a></td>
 							<td><?php echo $sheet['hole'] ?></td>
 							<td><?php echo $sheet['fc'] ?></td>
@@ -27,7 +36,7 @@
 							<td><?php echo $sheet['role'] ?></td>
 							<td><?php echo $sheet['mysites'] ?></td>
 							<td><?php echo $sheet['myisk'] ?></td>
-							<td><?php echo $sheet['status'] != 0 ? "Yes" : "No"; ?></td>
+							<td><?php echo $rowWord; ?></td>
 						</tr>
 					<?php endforeach ?>
 				</tbody>

@@ -19,9 +19,11 @@
 							$rowClass = 'warning';
 							if ($sheet['status'] == 2) $rowClass = 'success';
 							if ($sheet['status'] == 1) $rowClass = 'ready';
+							if ($sheet['status'] == -1) $rowClass = 'void';
 							$rowWord = 'No';
 							if ($sheet['status'] == 1) $rowWord = 'Yes';
-							if ($sheet['status'] == 2) $rowWord = 'Paid to Corp';							
+							if ($sheet['status'] == 2) $rowWord = 'Paid to Corp';	
+							if ($sheet['status'] == -1) $rowWord = 'Void';						
 						?>
 						<tr class="<?php echo $rowClass  ?>">
 							<td><a href="/loot/<?php echo $sheet['rowid'] ?>"><?php echo date('Y-m-d H:i', $sheet['date']) ?></a></td>

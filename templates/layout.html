@@ -33,11 +33,14 @@
         <?php  if ($charInfo->trusted && isAuthenticated() || $charInfo->authed): ?>
           <li><a href="#" onclick="openAddModal()">Add Wormhole</a></li>
         <?php  endif; ?>
-        <?php if ($charInfo->officer): ?>
+        <?php if ($charInfo->authed): ?>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loot Sheets <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="/loot/new">New Loot Sheet</a></li>
+              <?php if ($charInfo->officer): ?>
+                <li><a href="/loot/new">New Loot Sheet</a></li>
+                <li class="divider"></li>
+              <?php endif ?>
               <li><a href="/loot/list">My Loot Sheets</a></li>
               <?php if ($charInfo->officer): ?>
                 <li><a href="/loot/all">All Loot Sheets</a></li>

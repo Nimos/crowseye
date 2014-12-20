@@ -177,3 +177,9 @@ html {
   opacity: 40%;
 
 }
+
+.void {
+  opacity: 50%;
+  text-decoration: line-through;
+  background-color: gray;
+}

@@ -93,7 +93,7 @@ function updateLootSheet ($args) {
 		if (isset($_POST['action']) &&  ($permissions == 2 || $charInfo->director)) {
 
 			if ($_POST['action'] == "togglePaid") {
-				if ($_POST['status'] == 0 || $_POST['status'] == 1 || $_POST['status'] == 2) {
+				if ($_POST['status'] == 0 || $_POST['status'] == 1 || $_POST['status'] == 2 || $_POST['status'] == -1) {
 					Database::exec('UPDATE loots SET proof="'.Sqlite3::escapeString($data['proof']).'", status='.$_POST['status'].' WHERE rowid='.Sqlite3::escapeString($id).';');
 				}
 			}

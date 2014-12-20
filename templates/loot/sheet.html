@@ -72,6 +72,7 @@
                       <?php if ($paid != 0): ?><button onclick="togglePaid(0)" class="btn">Mark as Unpaid</button><?php endif ?>
                       <?php if ($paid != 2): ?><button onclick="togglePaid(2)" class="btn">Mark as Paid to Corp</button><?php endif ?>
                       <?php if ($paid != 1): ?>  <button onclick="togglePaid(1)" class="btn">Mark as Paid</button><?php endif ?>
+                      <?php if ($paid != -1): ?>  <button onclick="togglePaid(-1)" class="btn">Mark as Void</button><?php endif ?>
                     </td>
                   <?php endif ?>
                 </tr>
