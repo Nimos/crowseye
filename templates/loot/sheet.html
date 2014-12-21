@@ -28,7 +28,7 @@
           </tr>
         </table>
         <div class="panel-heading">
-          Totals <?php if ($paid == 1):?>- <span style="color: green">This Sheet has been marked as Paid</span><?php elseif ($paid == 2):?>- <span style="color: blue">This Sheet has been marked as paid to corp</span><?php endif ?>
+          Totals <?php if ($paid & 1):?>- <span style="color: green">This Sheet has been marked as Paid</span><?php endif; if ($paid & 2):?>- <span style="color: blue"> This Sheet has been marked as paid to corp</span><?php endif ?>
         </div>
         <div class="form-inline panel-body">
           <div class="form-group">
@@ -69,10 +69,12 @@
                     <td colspan="2" style="text-align: center;"><button onclick="addMember()" class="btn btn-default">Add Member</button></td>
                     <td colspan="2" style="text-align: right;">
                       <input type="text" value="<?php echo $sheet['proof']; ?>" class="formControl" id="proof" name="proof" placeholder="Payment screenshot">
-                      <?php if ($paid != 0): ?><button onclick="togglePaid(0)" class="btn">Mark as Unpaid</button><?php endif ?>
-                      <?php if ($paid != 2): ?><button onclick="togglePaid(2)" class="btn">Mark as Paid to Corp</button><?php endif ?>
-                      <?php if ($paid != 1): ?>  <button onclick="togglePaid(1)" class="btn">Mark as Paid</button><?php endif ?>
-                      <?php if ($paid != -1): ?>  <button onclick="togglePaid(-1)" class="btn">Mark as Void</button><?php endif ?>
+                      <?php if ($paid & 1): ?>   <button onclick="togglePaid(1, false)" class="btn">Mark as Unpaid</button>
+                      <?php else: ?>              <button onclick="togglePaid(1, true)" class="btn">Mark as Paid</button><?php endif ?>
+                      <?php if ($paid & 2): ?>   <button onclick="togglePaid(2, false)" class="btn">Mark as not Paid to Corp</button>
+                      <?php else: ?>              <button onclick="togglePaid(2, true)" class="btn">Mark as Paid to Corp</button><?php endif ?>
+                      <?php if ($paid & 4): ?>   <button onclick="togglePaid(4, false)" class="btn">Mark as not Void</button>
+                      <?php else: ?>              <button onclick="togglePaid(4, true)" class="btn">Mark as Void</button><?php endif ?>
                     </td>
                   <?php endif ?>
                 </tr>

@@ -139,10 +139,12 @@ var addMember = function () {
 	$.get(location.href+"/addMember", function (data) {updateTable(eval(("a = "+data)));})
 }
 
-var togglePaid = function (status) {
+var togglePaid = function (status, set) {
 	syncLootSheet();
 	var proof = $('#proof').val();
-	$.post(location.href+"/update",  {action: "togglePaid", status: status, proof: proof}, function () {location.reload()});
+	var s = "unset";
+	if (set) s="set";
+	$.post(location.href+"/update",  {action: "togglePaid", status: status, proof: proof, mode: s}, function () {location.reload()});
 }
 
 function ExportEmails() {

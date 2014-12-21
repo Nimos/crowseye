@@ -18,14 +18,14 @@
 				</thead>
 				<tbody>
 					<?php foreach ($sheets as $sheet): ?>
-						<?php if ($sheet['status'] == -1 && !$charInfo->officer) continue; ?>
+						<?php if (($sheet['status'] & 4) && !$charInfo->officer) continue; ?>
 						<?php 
 							$rowClass = 'success';
-							if ($sheet['status'] == 0) $rowClass = 'warning';
-							if ($sheet['status'] == -1) $rowClass = 'void';
+							if (!($sheet['status'] & 1)) $rowClass = 'warning';
+							if ($sheet['status'] & 4) $rowClass = 'void';
 							$rowWord = 'Yes';
-							if ($sheet['status'] == 0) $rowWord = 'No';
-							if ($sheet['status'] == -1) $rowWord = 'Void';						
+							if (!($sheet['status'] & 1)) $rowWord = 'No';
+							if ($sheet['status'] & 4) $rowWord += ' Void';						
 						?>
 						<tr class="<?php echo $rowClass;  ?>">
 							<td><a href="/loot/<?php echo $sheet['rowid'] ?>"><?php echo date('Y-m-d H:i', $sheet['date']) ?></a></td>
