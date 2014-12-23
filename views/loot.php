@@ -95,9 +95,9 @@ function updateLootSheet ($args) {
 			if ($_POST['action'] == "togglePaid") {
 				if ($_POST['status'] == 0 || $_POST['status'] == 1 || $_POST['status'] == 2 || $_POST['status'] == 4) {
 					if ($_POST['mode'] == 'set') {
-						Database::exec('UPDATE loots SET proof="'.Sqlite3::escapeString($data['proof']).'", status= status |'.$_POST['status'].' WHERE rowid='.Sqlite3::escapeString($id).';');
+						Database::exec('UPDATE loots SET proof="'.Sqlite3::escapeString($_POST['proof']).'", status= status |'.$_POST['status'].' WHERE rowid='.Sqlite3::escapeString($id).';');
 					} else {
-						Database::exec('UPDATE loots SET proof="'.Sqlite3::escapeString($data['proof']).'", status= status & ~'.$_POST['status'].' WHERE rowid='.Sqlite3::escapeString($id).';');
+						Database::exec('UPDATE loots SET proof="'.Sqlite3::escapeString($_POST['proof']).'", status= status & ~'.$_POST['status'].' WHERE rowid='.Sqlite3::escapeString($id).';');
 					}
 				}
 			}
@@ -126,7 +126,7 @@ function createLootSheet() {
 	}
 
 	if (isset($_POST['holeName'])) {
-		$sheetid = Database::putObject("loots", "(hole, fc, date, sites, isk) VALUES ('".SQLite3::escapeString($_POST['holeName']) ."',". $charInfo->dbID .",". time().", 0, 0)");
+		$sheetid = Database::putObject("loots", "(hole, fc, date, sites, isk, status) VALUES ('".SQLite3::escapeString($_POST['holeName']) ."',". $charInfo->dbID .",". time().", 0, 0, 0);");
 		$hole = Wormhole::getObjects('holes.name = "' . Sqlite3::escapeString($_POST['holeName']) .'"');
 		Database::putObject("lootentries", "(sheet, name, sites, role) VALUES (".$sheetid.",'".SQLite3::escapeString($charInfo->charName)."',0, 'FC')");
 		$fleet = explode("\n", $_POST['initialFleet']);
