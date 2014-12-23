@@ -25,7 +25,7 @@
 							if ($sheet['status'] & 4) $rowClass = 'void';
 							$rowWord = 'Yes';
 							if (!($sheet['status'] & 1)) $rowWord = 'No';
-							if ($sheet['status'] & 4) $rowWord += ' Void';						
+							if ($sheet['status'] & 4) $rowWord += ', Void';						
 						?>
 						<tr class="<?php echo $rowClass;  ?>">
 							<td><a href="/loot/<?php echo $sheet['rowid'] ?>"><?php echo date('Y-m-d H:i', $sheet['date']) ?></a></td>
