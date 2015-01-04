@@ -9,7 +9,7 @@
             <?php echo $charInfo->charName;?>
           </span>
           <?php if ($charInfo->authed): ?>
-            - Logged In
+            - Logged In (<a href="/logout">Logout</a>)
           <?php else: ?>
             - Unauthenticated <a href="/ssologin"><img src="https://images.contentful.com/idjq7aai9ylm/12vrPsIMBQi28QwCGOAqGk/33234da7672c6b0cdca394fc8e0b1c2b/EVE_SSO_Login_Buttons_Small_Black.png?w=150" /></a>
           <?php endif ?>

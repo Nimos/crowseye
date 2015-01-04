@@ -17,6 +17,19 @@
 		}
 	}
 
+	function logout() {
+		if (!$GLOBALS['ssoEnabled']) {
+			requestError(404, $_SERVER);
+		}
+
+		unset($_SESSION['loggedIn']);
+		unset($_SESSION['charID']);
+		unset($_SESSION['charName']);
+
+		header("Location: /");
+
+	}
+
 	function ssostep1() {
 		$ssobase = "https://login.eveonline.com/oauth/authorize/?response_type=code";
 		$redirect = "http://" . $_SERVER['HTTP_HOST'] . '/ssologin';
