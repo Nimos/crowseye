@@ -1,0 +1,34 @@
+<?php echo $GLOBALS['doctype'] ?>
+<html>
+	<?php include "templates/head.html";?>
+	<body>
+		<?php  showLayout() ?>
+		<div class="container">
+			<h4>Directors</h4>
+			<table class="table danger table-bordered">
+				<thead>
+					<th>ID</th>
+					<th>Name</th>
+					<th>CorpID</th>
+					<th>charID</th>
+					<th width="225px">Actions</th>
+				</thead>
+				<tbody>
+					<?php  foreach ($directors as $char): ?>
+						<tr name="<?php echo $char['rowid']; ?>">
+							<td><?php echo date("Y-m-d H:i:s", $char['reported']); ?></td>
+							<td><span class="character_field" name="<?php  echo $char["charName"]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $char['corpID'];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $char['charID']?>_32.jpg);"><?php  echo $char['charName']; ?></span></td>
+							<td><?php echo $char['system']; ?></td>
+							<td><?php echo $char['name']; ?></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		
+		<?php include "templates/footer.html";?>
+		<?php include "templates/scripts.html";?>
+	
+	</body>
+</html>
+

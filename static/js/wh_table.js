@@ -73,10 +73,69 @@ function getWhData () {
 		for (c=0;c<data.length;c++) {
 			if (debug) console.log("debug");
 			if (holes[data[c].id] != undefined) {
-				var isFiltered = false;//(!$('button#'+$('#'+data[c].id).children("td.class").text().substr(0,2)).hasClass('btn-success'));//ugly :(
+				var isFiltered = (!$('button#'+$('#'+data[c].id).children("td.class").text().substr(0,2)).hasClass('btn-success'));//ugly :(
+					if (!isFiltered && $('#siteFilter10').hasClass('btn-success')){
+						if(data[c].siteNumber < $('#siteFilter10').text().substr(1,2)) {
+							isFiltered=true;
+						}
+					}
+					var wheffect= data[c].effect[0].replace(" ", "").replace("	","");
+					wheffect=wheffect.trim();
+					if (!isFiltered && (!$('#effNE').hasClass('btn-success')) && wheffect.length<1){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effM').hasClass('btn-success')) && (wheffect == "Magnetar")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effRG').hasClass('btn-success')) && (wheffect == "Reg Giant")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effP').hasClass('btn-success')) && (wheffect == "Pulsar")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effWR').hasClass('btn-success')) && (wheffect == "Wolf-RayetStar")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effCV').hasClass('btn-success')) && (wheffect == "Cataclysmic Variable")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effBH').hasClass('btn-success')) && (wheffect == "Black Hole")){
+							isFiltered=true;
+					}
+				
+				
 				if (!isFiltered) holes[data[c].id][0] = 1; //keep
 			} else {
-				var isFiltered = false;//(!$('button#'+data[c].class.substr(0,2)).hasClass('btn-success'));//ugly :(				
+				var isFiltered = (!$('button#'+data[c].class.substr(0,2)).hasClass('btn-success'));//ugly :(	
+					if (!isFiltered && $('#siteFilter10').hasClass('btn-success')){
+						if(data[c].siteNumber < $('#siteFilter10').text().substr(1,2)) {
+							isFiltered=true;
+						}
+					}
+					var wheffect= data[c].effect[0].replace(" ", "").replace("	","");
+					wheffect=wheffect.trim();
+					if (!isFiltered && (!$('#effNE').hasClass('btn-success')) && wheffect.length<1){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effM').hasClass('btn-success')) && (wheffect == "Magnetar")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effRG').hasClass('btn-success')) && (wheffect == "Reg Giant")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effP').hasClass('btn-success')) && (wheffect == "Pulsar")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effWR').hasClass('btn-success')) && (wheffect == "Wolf-RayetStar")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effCV').hasClass('btn-success')) && (wheffect == "Cataclysmic Variable")){
+							isFiltered=true;
+					}
+					if (!isFiltered && (!$('#effBH').hasClass('btn-success')) && (wheffect == "Black Hole")){
+							isFiltered=true;
+					}
+							
 				if (!isFiltered) holes[data[c].id] = [2, data[c]]; //add
 			}
 		}
@@ -407,4 +466,102 @@ $('button.filterbutton').click(function () {
 $("select#homeSystem").change(function () {
 	$.cookie('home', $(this).val());
 	location.reload();
+});
+
+$('#allHoles').click(function () {
+	 if(!$("#C1").hasClass("btn-success")){
+    $("#C1").toggleClass("btn-success");
+ }
+	 if(!$("#C2").hasClass("btn-success")){
+    $("#C2").toggleClass("btn-success");
+ }
+	 if(!$("#C3").hasClass("btn-success")){
+    $("#C3").toggleClass("btn-success");
+ }
+	 if(!$("#C4").hasClass("btn-success")){
+    $("#C4").toggleClass("btn-success");
+ }
+	 if(!$("#C5").hasClass("btn-success")){
+    $("#C5").toggleClass("btn-success");
+ }
+	 if(!$("#C6").hasClass("btn-success")){
+    $("#C6").toggleClass("btn-success");
+ }
+ 
+	 if(!$("#effNE").hasClass("btn-success")){
+    $("#effNE").toggleClass("btn-success");
+ }
+	 if(!$("#effM").hasClass("btn-success")){
+    $("#effM").toggleClass("btn-success");
+ }
+	 if(!$("#effRG").hasClass("btn-success")){
+    $("#effRG").toggleClass("btn-success");
+ }
+	 if(!$("#effP").hasClass("btn-success")){
+    $("#effP").toggleClass("btn-success");
+ }
+	 if(!$("#effWR").hasClass("btn-success")){
+    $("#effWR").toggleClass("btn-success");
+ }
+	 if(!$("#effCV").hasClass("btn-success")){
+    $("#effCV").toggleClass("btn-success");
+ }
+	 if(!$("#effBH").hasClass("btn-success")){
+    $("#effBH").toggleClass("btn-success");
+ }
+ 
+	 if($("#siteFilter10").hasClass("btn-success")){
+    $("#siteFilter10").toggleClass("btn-success");
+ }
+	
+	getWhData();
+});
+
+$('#noHoles').click(function () {
+	 if($("#C1").hasClass("btn-success")){
+    $("#C1").toggleClass("btn-success");
+ }
+	 if($("#C2").hasClass("btn-success")){
+    $("#C2").toggleClass("btn-success");
+ }
+	 if($("#C3").hasClass("btn-success")){
+    $("#C3").toggleClass("btn-success");
+ }
+	 if($("#C4").hasClass("btn-success")){
+    $("#C4").toggleClass("btn-success");
+ }
+	 if($("#C5").hasClass("btn-success")){
+    $("#C5").toggleClass("btn-success");
+ }
+	 if($("#C6").hasClass("btn-success")){
+    $("#C6").toggleClass("btn-success");
+ }
+ 
+	 if($("#effNE").hasClass("btn-success")){
+    $("#effNE").toggleClass("btn-success");
+ }
+	 if($("#effM").hasClass("btn-success")){
+    $("#effM").toggleClass("btn-success");
+ }
+	 if($("#effRG").hasClass("btn-success")){
+    $("#effRG").toggleClass("btn-success");
+ }
+	 if($("#effP").hasClass("btn-success")){
+    $("#effP").toggleClass("btn-success");
+ }
+	 if($("#effWR").hasClass("btn-success")){
+    $("#effWR").toggleClass("btn-success");
+ }
+	 if($("#effCV").hasClass("btn-success")){
+    $("#effCV").toggleClass("btn-success");
+ }
+	 if($("#effBH").hasClass("btn-success")){
+    $("#effBH").toggleClass("btn-success");
+ }
+ 
+	 if($("#siteFilter10").hasClass("btn-success")){
+    $("#siteFilter10").toggleClass("btn-success");
+ }
+	
+	getWhData();
 });
