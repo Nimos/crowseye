@@ -39,7 +39,7 @@
 
 			} else {
 				$this->class = self::getSecurityByName($name);
-				$this->effect = "";
+				$this->effect = array(0 => "", "effect" => "");
 				$this->region = self::getRegionByName($name);
 			}
 			$this->jumps = self::getJumps($system);

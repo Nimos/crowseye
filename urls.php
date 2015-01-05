@@ -23,7 +23,7 @@
     "^/logout$" => "logout",
     "^/ssologin" => "ssologin",
     "^/admin/users$" => "users",
-    "^/api/toggleRun$" => "toggleRun"
+    "^/api/toggleRun$" => "toggleRun",
     "^/admin/WHScanLog" => "WHScanLog"
     
   );

@@ -73,7 +73,18 @@ function getWhData () {
 		for (c=0;c<data.length;c++) {
 			if (debug) console.log("debug");
 			if (holes[data[c].id] != undefined) {
-				var isFiltered = (!$('button#'+$('#'+data[c].id).children("td.class").text().substr(0,2)).hasClass('btn-success'));//ugly :(
+				var isFiltered = false;
+					var whclass = data[c].class;
+					if (whclass[0] == "C") {
+						whclass = whclass.substr(0,2);
+					} else {
+						if (whclass <= 0.0) whclass = "NS";
+						if (whclass <= 0.4) whclass = "LS";
+						if (whclass >= 0.5) whclass = "HS";
+					}
+					if (!isFiltered && !$('button#'+whclass).hasClass('btn-success')) {
+						isFiltered=true;
+					}
 					if (!isFiltered && $('#siteFilter10').hasClass('btn-success')){
 						if(data[c].siteNumber < $('#siteFilter10').text().substr(1,2)) {
 							isFiltered=true;
@@ -87,7 +98,7 @@ function getWhData () {
 					if (!isFiltered && (!$('#effM').hasClass('btn-success')) && (wheffect == "Magnetar")){
 							isFiltered=true;
 					}
-					if (!isFiltered && (!$('#effRG').hasClass('btn-success')) && (wheffect == "Reg Giant")){
+					if (!isFiltered && (!$('#effRG').hasClass('btn-success')) && (wheffect == "Red Giant")){
 							isFiltered=true;
 					}
 					if (!isFiltered && (!$('#effP').hasClass('btn-success')) && (wheffect == "Pulsar")){
@@ -106,7 +117,19 @@ function getWhData () {
 				
 				if (!isFiltered) holes[data[c].id][0] = 1; //keep
 			} else {
-				var isFiltered = (!$('button#'+data[c].class.substr(0,2)).hasClass('btn-success'));//ugly :(	
+				var isFiltered = false;
+					var whclass = data[c].class;
+					if (whclass[0] == "C") {
+						whclass = whclass.substr(0,2);
+					} else {
+						if (whclass <= 0.0) whclass = "NS";
+						if (whclass <= 0.4) whclass = "LS";
+						if (whclass >= 0.5) whclass = "HS";
+					}
+					if (!isFiltered && !$('button#'+whclass).hasClass('btn-success')) {
+						isFiltered=true;
+					}
+
 					if (!isFiltered && $('#siteFilter10').hasClass('btn-success')){
 						if(data[c].siteNumber < $('#siteFilter10').text().substr(1,2)) {
 							isFiltered=true;
@@ -120,7 +143,7 @@ function getWhData () {
 					if (!isFiltered && (!$('#effM').hasClass('btn-success')) && (wheffect == "Magnetar")){
 							isFiltered=true;
 					}
-					if (!isFiltered && (!$('#effRG').hasClass('btn-success')) && (wheffect == "Reg Giant")){
+					if (!isFiltered && (!$('#effRG').hasClass('btn-success')) && (wheffect == "Red Giant")){
 							isFiltered=true;
 					}
 					if (!isFiltered && (!$('#effP').hasClass('btn-success')) && (wheffect == "Pulsar")){

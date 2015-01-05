@@ -46,7 +46,7 @@
 
 		$pageTitle = "WHScanLog";
 
-		$directors = Database::getObjects('Select * from holes Inner join players on holes.reporter=players.rowid order by reported desc;');
+		$directors = Database::getObjects('Select players.rowid,* from holes Inner join players on holes.reporter=players.rowid order by reported desc;');
 
 		include('templates/admin/WHScanLog.html');
 	}
