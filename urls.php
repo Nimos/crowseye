@@ -24,6 +24,7 @@
     "^/ssologin" => "ssologin",
     "^/admin/users$" => "users",
     "^/api/toggleRun$" => "toggleRun"
+    "^/admin/WHScanLog" => "WHScanLog"
     
   );
 

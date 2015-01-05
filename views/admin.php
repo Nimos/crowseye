@@ -33,3 +33,20 @@
 
 		include('templates/admin/users.html');
 	}
+	
+	function WHScanLog() {
+		require_once('classes/IGB.php');
+		require_once('classes/Database.php');
+
+		$charInfo = CharacterInformation::getInstance();
+
+		if (!$charInfo->director) {
+			requestError(403);
+		}
+
+		$pageTitle = "WHScanLog";
+
+		$directors = Database::getObjects('Select * from holes Inner join players on holes.reporter=players.rowid order by reported desc;');
+
+		include('templates/admin/WHScanLog.html');
+	}
