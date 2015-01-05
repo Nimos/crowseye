@@ -30,14 +30,20 @@
 			$this->sig = "not specified";
 			if ($sig)	$this->sig = $sig;
 			$this->status = $status;
+			$this->siteNumber = count($sites['Combat Site']);
+			$this->wspace = preg_match ('/J[0-9][0-9][0-9][0-9][0-9][0-9]/i', $name);
 
+			if ($this->wspace) {
+				$this->class = self::getClassByName($name);
+				$this->effect = self::getEffectByName($name);
 
-
-			$this->class = self::getClassByName($name);
-			$this->effect = self::getEffectByName($name);
+			} else {
+				$this->class = self::getSecurityByName($name);
+				$this->effect = "";
+				$this->region = self::getRegionByName($name);
+			}
 			$this->jumps = self::getJumps($system);
 			$this->age = time() - $reported;
-			$this->siteNumber = count($sites['Combat Site']);
 		}
 
 		public static function parseScan($scan) {
@@ -78,7 +84,7 @@
 		public function save() {
 			$holeinfo = $charInfo = Database::filterBy("holes", ' name="'.SQLite3::escapeString($this->name).'"');
 
-			if (self::getClassByName($this->name) == null) return -1;
+			if ($this->class == null) return -1;
 
 			if (count($holeinfo) != 0) {
 				foreach ($holeinfo as $hole) {
@@ -402,6 +408,19 @@
 			$res = $db->query('SELECT class FROM wh WHERE name="'.SQLite3::escapeString($wh).'";');
 			$result = $res->fetchArray();
 			return $result[0];			
+		}
+
+		public static function getRegionByName($wh) {
+			$db = new SQLite3("db/staticdata.db");
+			$res = $db->query('SELECT region FROM kspace WHERE name="'.SQLite3::escapeString($wh).'";');
+			$result = $res->fetchArray();
+			return $result[0];					
+		}
+		public static function getSecurityByName($wh) {
+			$db = new SQLite3("db/staticdata.db");
+			$res = $db->query('SELECT security FROM kspace WHERE name="'.SQLite3::escapeString($wh).'";');
+			$result = $res->fetchArray();
+			return $result[0];					
 		}
 
 		public static function getSites($wh, $after=0) {

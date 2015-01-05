@@ -73,10 +73,10 @@ function getWhData () {
 		for (c=0;c<data.length;c++) {
 			if (debug) console.log("debug");
 			if (holes[data[c].id] != undefined) {
-				var isFiltered = (!$('button#'+$('#'+data[c].id).children("td.class").text().substr(0,2)).hasClass('btn-success'));//ugly :(
+				var isFiltered = false;//(!$('button#'+$('#'+data[c].id).children("td.class").text().substr(0,2)).hasClass('btn-success'));//ugly :(
 				if (!isFiltered) holes[data[c].id][0] = 1; //keep
 			} else {
-				var isFiltered = (!$('button#'+data[c].class.substr(0,2)).hasClass('btn-success'));//ugly :(				
+				var isFiltered = false;//(!$('button#'+data[c].class.substr(0,2)).hasClass('btn-success'));//ugly :(				
 				if (!isFiltered) holes[data[c].id] = [2, data[c]]; //add
 			}
 		}
@@ -165,11 +165,19 @@ function addWh (wh) {
 	var siteNumber = wh.siteNumber;
 	if (wh.sites.all.length == 0) siteNumber="No Report";
 	console.log(wh);
+	wh.regionstring = '';
+	wh.securityclass = wh.class.substr(0,2)+'_wh';
+	if (wh.region) {
+		wh.regionstring = ' ('+wh.region.trim()+')';
+
+		wh.securityclass = "sec"+Math.max(wh.class,0)*10;
+	}
+
 	var row = '<tr jumps="'+wh.jumps+'" style="display:none;" class="wh'; if (wh.status) {row+=" run"}; row+='" id="'+wh.id+'" name="'+wh.name+'">';
 		row+= '	 <td class="jumps">'+wh.jumps+'</td>';
 		row+= '  <td class="system">'+wh.system+'</td>';
-		row+= '  <td class="class '+wh.class.substr(0,2)+'_wh">'+wh.class+'</td>';
-		row+= '  <td class="wh_name">'+wh.name+'  <a class="tp" data-toggle="tooltip" title="Open on wh.pasta.gg" onclick="event.stopPropagation()" target="_blank" href="http://wh.pasta.gg/'+wh.name+'">  <img src="static/gfx/wormholes.png" width="16" height="16"></a></td>';
+		row+= '  <td class="class '+wh.securityclass+'">'+wh.class+'</td>';
+		row+= '  <td class="wh_name">'+wh.name+wh.regionstring+'  <a class="tp" data-toggle="tooltip" title="Open on wh.pasta.gg" onclick="event.stopPropagation()" target="_blank" href="http://wh.pasta.gg/'+wh.name+'">  <img src="static/gfx/wormholes.png" width="16" height="16"></a></td>';
 		row+= '  <td class="sigid">'+wh.sig+'</td>';
 		row+= '  <td class="siteNumber">'+siteNumber+'</td>';
 		row+= '  <td class="reporter">';
@@ -183,7 +191,6 @@ function addWh (wh) {
 		row+= '    <div style="display:none;">';
 		row+= '      <h4>Sites</h4>';
 		row+= '      <div class="info sites">';
-		//row+= '        <p class="sitecount">Total Sites:'+wh.sites.all.length+'</p>';
 		row+= '        <table class="sites table table-condensed">';
 		row+= '          <thead>';
 		row+= '            <th>Sig ID</th>';
@@ -355,7 +362,7 @@ function openAddModal() {
 $('form#addWhForm').submit(function(e){
 	if ($(this).find('#systemName').val() == "" || $(this).find('#wormholeName').val() == "") return false;
 
-	if (!/J[0-9][0-9][0-9][0-9][0-9][0-9]/.test($(this).find('#wormholeName').val())) {
+	/*if (!/J[0-9][0-9][0-9][0-9][0-9][0-9]/.test($(this).find('#wormholeName').val())) {
       	$('button#addHole').removeClass('loading');
       	$('#addModal').find('#wormholeName').parent().addClass('has-error');
       	$('.modal-footer').before('<div class="alert alert-danger fade in">\
@@ -364,7 +371,7 @@ $('form#addWhForm').submit(function(e){
      			<p>For now, only wormholes to w-space are allowed.</p>\
     		</div>');		
       	return false;
-	}
+	}*/
 
 	$('button#addHole').addClass('loading');
       	e.preventDefault();
