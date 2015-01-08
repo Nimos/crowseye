@@ -6,10 +6,6 @@
 
 		$charInfo = CharacterInformation::getInstance();
 
-		if (!$charInfo->director) {
-			requestError(403);
-		}
-
 		$pageTitle = "Officer List";
 
 		$officers = Database::getObjects('SELECT rowid,* FROM players WHERE fc=1 or director=1;');
