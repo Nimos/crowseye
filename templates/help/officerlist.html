@@ -1,0 +1,19 @@
+<?php echo $GLOBALS['doctype'] ?>
+<html>
+	<?php include "templates/head.html";?>
+	<body>
+		<?php  showLayout() ?>
+		<div class="container">
+			<h4>List of approved STAHP FCs</h4>
+			<ul class="list-unstyled">
+				<?php  foreach ($officers as $char): ?>
+					<li style="padding-bottom: 6px"><span class="character_field" name="<?php  echo $char["charName"]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $char['corpID'];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $char['charID']?>_32.jpg);"><?php  echo $char['charName']; ?></span></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		
+		<?php include "templates/footer.html";?>
+		<?php include "templates/scripts.html";?>
+	</body>
+</html>
+
