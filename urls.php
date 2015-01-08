@@ -17,6 +17,7 @@
     "^/api/delete$" => "jsonDelete",
     "^/dojo$" => "dojoParser",
     "^/help/fittings$" => "fittingHelp",
+    "^/help/officers" => "officerlist",
     "^/help/(.*)$" => "embeddedGdoc",
     "^/help$" => "helpLanding",
     "^/login$" => "login",
@@ -24,7 +25,7 @@
     "^/ssologin" => "ssologin",
     "^/admin/users$" => "users",
     "^/api/toggleRun$" => "toggleRun",
-    "^/admin/WHScanLog" => "WHScanLog"
+    "^/admin/WHScanLog" => "WHScanLog",
     
   );
 

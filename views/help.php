@@ -1,4 +1,23 @@
 <?php
+
+	function officerlist() {
+		require_once('classes/IGB.php');
+		require_once('classes/Database.php');
+
+		$charInfo = CharacterInformation::getInstance();
+
+		if (!$charInfo->director) {
+			requestError(403);
+		}
+
+		$pageTitle = "Officer List";
+
+		$officers = Database::getObjects('SELECT rowid,* FROM players WHERE fc=1 or director=1;');
+
+
+		include('templates/help/officerlist.html');
+	}
+
 function fittingHelp() {
 	header('Location: http://fleet-up.com/Doctrine/Index/42426');
 	#$pageTitle = "Fittings";
