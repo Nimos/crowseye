@@ -60,7 +60,10 @@
 
 			foreach ($data as $line) {
 				$arr = explode("\t", $line);
-				if (sizeof($arr) < 3) continue;
+				if (sizeof($arr) < 3) continue; // filter invalid lines
+				if (preg_match ( "/.* Covert Research Facility/" , $arr[3])) {
+					$arr[2] = "Ghost Site";
+				}; 
 				$site = array(
 					"sig" => $arr[0],
 					"type" => $arr[2],
