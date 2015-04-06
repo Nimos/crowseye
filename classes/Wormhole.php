@@ -147,6 +147,35 @@
 			}
 
 			$jumpArray = array(
+
+				strtolower("Defsunun") => "0",	 
+				strtolower("Shafrak") => "1",
+				strtolower("Efu")	=> "1",
+				strtolower("Nalnifan") 		=> "2",
+				strtolower("Zazamye")		=> "2",
+				strtolower("Tisot") 		=> "2",
+				strtolower("Getrenjesa") 	=> "3",
+				strtolower("Sazilid") 		=> "3",
+				strtolower("Naga") 			=> "3",
+				strtolower("Jerhesh") 		=> "3",
+				strtolower("Yahyerer") 		=> "3",
+				strtolower("Omigiav") 		=> "3",
+				strtolower("Sakht") 		=> "3",
+				strtolower("Rashagh") 		=> "4",
+				strtolower("1-SMEB")		=> "4",
+				strtolower("Shenda") 		=> "4",
+				strtolower("Esubara") 		=> "4",
+				strtolower("Anath") 		=> "4",
+				strtolower("Sota") 			=> "5",
+				strtolower("Rafeme") 		=> "5",
+				strtolower("Nema")	 		=> "5",
+				strtolower("6Q-R50")		=> "5",
+				strtolower("Q-HESZ")		=> "5",
+				strtolower("M5-CGW")		=> "5",
+				strtolower("Ghekon")		=> "5"
+			);
+
+			/* $jumpArray = array(
 				strtolower("GE-8JV")	=> "0",
 				strtolower("AX-DOT")	=> "1",
 				strtolower("MUXX-4")	=> "2",
@@ -191,7 +220,7 @@
 
 			);
 
-			/*if (!isset($_COOKIE['home'])) $_COOKIE['home'] = "GJ0-OJ";
+			if (!isset($_COOKIE['home'])) $_COOKIE['home'] = "GJ0-OJ";
 
 
 			if ($_COOKIE['home'] == "Ratillose") {
