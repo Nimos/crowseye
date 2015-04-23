@@ -63,7 +63,7 @@
 				if (sizeof($arr) < 3) continue; // filter invalid lines
 				if (preg_match ( "/.* Covert Research Facility/" , $arr[3])) {
 					$arr[2] = "Ghost Site";
-				}; 
+				};
 				$site = array(
 					"sig" => $arr[0],
 					"type" => $arr[2],
@@ -77,7 +77,7 @@
 				} else {
 					array_push($result['unscanned'], $site);
 				}
-				array_push($result['all'], $site);	
+				array_push($result['all'], $site);
 			}
 			return $result;
 		}
@@ -91,16 +91,16 @@
 
 			if (count($holeinfo) != 0) {
 				foreach ($holeinfo as $hole) {
-					if ((time() - $hole['reported']) < 86400) return -1;	
+					if ((time() - $hole['reported']) < 86400) return -1;
 				}
-			} 
+			}
 
 
 
 			$charInfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($this->reporter[0]).'"');
 
 			if (count($charInfo) == 0) {
-				$id = Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0,0);");	
+				$id = Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0,0);");
 			} else if ($charInfo[0]['corpID'] != $this->reporter[2]) {
 				$id = $charInfo[0]['rowid'];
 				Database::exec('UPDATE players SET corpID="'.SQLite3::escapeString($this->reporter[2]).'" WHERE charID='.SQLite3::escapeString($this->reporter[0]).';');
@@ -115,11 +115,11 @@
 		}
 
 		public static function saveSites($holeID, $sites) {
-			
+
 			foreach ($sites['all'] as $site) {
 				$siteinfo = Database::filterBy("sites", ' sig="'.SQLite3::escapeString($site['sig']).'" AND hole='.$holeID);
-				if (count($siteinfo) == 0) { 
-					$id = Database::putObject("sites", "(sig, type, name, hole, time) VALUES ('".SQLite3::escapeString($site['sig'])."','".SQLite3::escapeString($site['type'])."','".SQLite3::escapeString($site['name'])."',".SQLite3::escapeString($holeID).",".time().");");	
+				if (count($siteinfo) == 0) {
+					$id = Database::putObject("sites", "(sig, type, name, hole, time) VALUES ('".SQLite3::escapeString($site['sig'])."','".SQLite3::escapeString($site['type'])."','".SQLite3::escapeString($site['name'])."',".SQLite3::escapeString($holeID).",".time().");");
 				} else {
 					$db = new SQLite3('db/wh.db');
             		$db->busyTimeout(1000);
@@ -148,9 +148,54 @@
 
 			$jumpArray = array(
 
-				strtolower("Defsunun") => "0",	 
-				strtolower("Shafrak") => "1",
-				strtolower("Efu")	=> "1",
+				strtolower("YZ-LQL")			=> "0",
+				strtolower("Z30S-A") 			=> "1",
+				strtolower("A-1CON")			=> "1",
+				strtolower("MN5N-X") 			=> "1",
+				strtolower("D-Q04X")			=> "1",
+				strtolower("75FA-Z") 			=> "1",
+				strtolower("Serpentis Prime")	=> "1",
+				strtolower("A-HZYL") 			=> "2",
+				strtolower("671-ST")			=> "2",
+				strtolower("LIWW-P") 			=> "2",
+				strtolower("O-PNSN") 			=> "2",
+				strtolower("WY-9LL") 			=> "2",
+				strtolower("I-CUVX") 			=> "2",
+				strtolower("57-KJB") 			=> "3",
+				strtolower("ESC-RI")			=> "3",
+				strtolower("G-UTHL") 			=> "3",
+				strtolower("M-KXEH") 			=> "3",
+				strtolower("38IA-E") 			=> "3",
+				strtolower("F2-2C3") 			=> "3",
+				strtolower("C-FER9") 			=> "3",
+				strtolower("1-5GBW")	 		=> "3",
+				strtolower("14YI-D")			=> "3",
+				strtolower("J-RQMF")			=> "3",
+				strtolower("UAYL-F")			=> "4",
+				strtolower("H-S80W")			=> "4",
+				strtolower("V6-NY1")			=> "4",
+				strtolower("TU-Y2A")			=> "4",
+				strtolower("7BIX-A")			=> "4",
+				strtolower("F-88PJ")			=> "4",
+				strtolower("ATQ-QS")			=> "4",
+				strtolower("TEG-SD")			=> "4",
+				strtolower("LJ-TZW")			=> "4",
+				strtolower("KVN-36")			=> "4",
+				strtolower("K8L-X7") 			=> "5",
+				strtolower("OL3-78") 			=> "5",
+				strtolower("9DQW-W") 			=> "5",
+				strtolower("XUW-3X") 			=> "5",
+				strtolower("97XQ-0") 			=> "5",
+				strtolower("C-N4OD") 			=> "5",
+				strtolower("4HS-CR") 			=> "5",
+
+			);
+
+			/*$jumpArray = array(
+
+				strtolower("Defsunun") 		=> "0",
+				strtolower("Shafrak")		=> "1",
+				strtolower("Efu")			=> "1",
 				strtolower("Nalnifan") 		=> "2",
 				strtolower("Zazamye")		=> "2",
 				strtolower("Tisot") 		=> "2",
@@ -175,7 +220,7 @@
 				strtolower("Ghekon")		=> "5"
 			);
 
-			/* $jumpArray = array(
+		 	$jumpArray = array(
 				strtolower("GE-8JV")	=> "0",
 				strtolower("AX-DOT")	=> "1",
 				strtolower("MUXX-4")	=> "2",
@@ -345,15 +390,15 @@
 					strtolower("Shach") => "4",
 					strtolower("Mahnagh") => "5",
 					strtolower("Timeor") => "5",
-					strtolower("Doril") => "1",		
-					strtolower("Jorund") => "2",		
-					strtolower("Farit") => "3",		
-					strtolower("Hemin") => "3",		
-					strtolower("Utopia") => "2",		
-					strtolower("Litom") => "3",		
-					strtolower("Jamunda") => "4",		
-					strtolower("Hemin") => "3",		
-					strtolower("RMOC-W") => "4",		
+					strtolower("Doril") => "1",
+					strtolower("Jorund") => "2",
+					strtolower("Farit") => "3",
+					strtolower("Hemin") => "3",
+					strtolower("Utopia") => "2",
+					strtolower("Litom") => "3",
+					strtolower("Jamunda") => "4",
+					strtolower("Hemin") => "3",
+					strtolower("RMOC-W") => "4",
 					strtolower("YKE4-3") => "5",
 					strtolower("K-QWHE") => "5",
 					strtolower("1-PWGB") => "5"
@@ -439,20 +484,20 @@
 			$db = new SQLite3("db/staticdata.db");
 			$res = $db->query('SELECT class FROM wh WHERE name="'.SQLite3::escapeString($wh).'";');
 			$result = $res->fetchArray();
-			return $result[0];			
+			return $result[0];
 		}
 
 		public static function getRegionByName($wh) {
 			$db = new SQLite3("db/staticdata.db");
 			$res = $db->query('SELECT region FROM kspace WHERE name="'.SQLite3::escapeString($wh).'";');
 			$result = $res->fetchArray();
-			return $result[0];					
+			return $result[0];
 		}
 		public static function getSecurityByName($wh) {
 			$db = new SQLite3("db/staticdata.db");
 			$res = $db->query('SELECT security FROM kspace WHERE name="'.SQLite3::escapeString($wh).'";');
 			$result = $res->fetchArray();
-			return $result[0];					
+			return $result[0];
 		}
 
 		public static function getSites($wh, $after=0) {
@@ -472,16 +517,16 @@
 				} else {
 					array_push($result['unscanned'], $site);
 				}
-				array_push($result['all'], array($site['sig'], $site['type'], $site['name']));	
+				array_push($result['all'], array($site['sig'], $site['type'], $site['name']));
 			}
 
 			return $result;
 		}
-		
+
 		public static function getComments($wh, $after=0) {
 			$result = array();
 			foreach (Database::getObjects('SELECT rowid,text,* FROM comments WHERE hole='.SQLite3::escapeString($wh).' AND time>'.SQLite3::escapeString($after).';') as $site) {
-				array_push($result, array($site['time'], self::getPlayerByID($site['author']), $site['text'], $site['hole'], $site['rowid']));	
+				array_push($result, array($site['time'], self::getPlayerByID($site['author']), $site['text'], $site['hole'], $site['rowid']));
 			}
 			return $result;
 		}
@@ -497,13 +542,13 @@
 		public static function addComment($playerID, $wh, $comment) {
 			$charInfo = Database::filterBy("players", ' charID="'.SQLite3::escapeString($playerID).'"');
 			if (count($charInfo) == 0) {
-				$id = Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0,0);");	
+				$id = Database::putObject("players", "(charName, charID, corpID, fc, director) VALUES ('".SQLite3::escapeString($this->reporter[1])."','".SQLite3::escapeString($this->reporter[0])."','".SQLite3::escapeString($this->reporter[2])."',0,0);");
 			} else {
 				$id = $charInfo[0]['rowid'];
 			}
 
-			$rid = Database::putObject("comments", "(hole, author, time, text) VALUES ('".SQLite3::escapeString($wh)."','".SQLite3::escapeString($id)."','".SQLite3::escapeString(time())."','".SQLite3::escapeString($comment)."');");	
-			
+			$rid = Database::putObject("comments", "(hole, author, time, text) VALUES ('".SQLite3::escapeString($wh)."','".SQLite3::escapeString($id)."','".SQLite3::escapeString(time())."','".SQLite3::escapeString($comment)."');");
+
 			return $rid;
 
 
