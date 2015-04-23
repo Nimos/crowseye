@@ -154,7 +154,7 @@
 				strtolower("MN5N-X") 			=> "1",
 				strtolower("D-Q04X")			=> "1",
 				strtolower("75FA-Z") 			=> "1",
-				strtolower("Serpentis Prime")	=> "1",
+				strtolower("Serpentis Prime")		=> "1",
 				strtolower("A-HZYL") 			=> "2",
 				strtolower("671-ST")			=> "2",
 				strtolower("LIWW-P") 			=> "2",
