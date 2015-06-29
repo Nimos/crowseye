@@ -12,7 +12,7 @@
   $refreshRate = 6000;
   $performanceMode = 0;
   #END OF DEFAULTS
-  
+
   if (file_exists("config.php")) {
     include("config.php"); #for things like setting a password
   }
@@ -21,7 +21,7 @@
     include $file;
   }
 
-  session_start(); 
+  session_start();
 
   require_once("urls.php");
 
@@ -30,7 +30,7 @@
       header('Content-Type: text/html; charset='.$charset);
       $func($args);
       exit();
-    } 
+    }
   }
 
 

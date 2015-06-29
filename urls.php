@@ -24,9 +24,10 @@
     "^/logout$" => "logout",
     "^/ssologin" => "ssologin",
     "^/admin/users$" => "users",
+    "^/admin/sendping$" => "PingStart",
     "^/api/toggleRun$" => "toggleRun",
     "^/admin/WHScanLog" => "WHScanLog",
-    
+
   );
 
   $staticUrl = "/static/";
