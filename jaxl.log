@@ -1,0 +1,50 @@
+jaxl:200 - 2015-06-30 00:05:31 - dns srv lookup for stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 00:05:31 - trying tcp://stahp.ovh:5222
+xmpp_stream:112 - 2015-06-30 00:05:31 - got invalid return value from state handler 'wait_for_stream_features', sending end stream...
+xmpp_stream:115 - 2015-06-30 00:05:31 - state handler 'logged_out' returned N;, kindly report this to developers
+sendping:78 - 2015-06-30 00:05:32 - got on_disconnect cb
+jaxl:200 - 2015-06-30 07:55:31 - dns srv lookup for stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 07:55:32 - trying tcp://stahp.ovh:5222
+xmpp_stream:112 - 2015-06-30 07:55:32 - got invalid return value from state handler 'wait_for_stream_features', sending end stream...
+xmpp_stream:115 - 2015-06-30 07:55:32 - state handler 'logged_out' returned N;, kindly report this to developers
+sendping:78 - 2015-06-30 07:55:32 - got on_disconnect cb
+jaxl:200 - 2015-06-30 14:26:22 - dns srv lookup for stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 14:26:25 - trying tcp://stahp.ovh:5222
+xmpp_stream:112 - 2015-06-30 14:26:25 - got invalid return value from state handler 'wait_for_stream_features', sending end stream...
+xmpp_stream:115 - 2015-06-30 14:26:25 - state handler 'logged_out' returned N;, kindly report this to developers
+sendping:78 - 2015-06-30 14:26:25 - got on_disconnect cb
+jaxl:200 - 2015-06-30 14:51:18 - dns srv lookup for stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 14:51:18 - trying tcp://stahp.ovh:5222
+xmpp_stream:112 - 2015-06-30 14:51:18 - got invalid return value from state handler 'wait_for_stream_features', sending end stream...
+xmpp_stream:115 - 2015-06-30 14:51:18 - state handler 'logged_out' returned N;, kindly report this to developers
+sendping:74 - 2015-06-30 14:51:18 - got on_disconnect cb
+jaxl:200 - 2015-06-30 14:52:34 - dns srv lookup for stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 14:52:34 - trying tcp://stahp.ovh:5222
+xmpp_stream:112 - 2015-06-30 14:52:34 - got invalid return value from state handler 'wait_for_stream_features', sending end stream...
+xmpp_stream:115 - 2015-06-30 14:52:34 - state handler 'logged_out' returned N;, kindly report this to developers
+sendping:74 - 2015-06-30 14:52:34 - got on_disconnect cb
+jaxl:200 - 2015-06-30 15:19:25 - dns srv lookup for stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 15:19:26 - trying tcp://stahp.ovh:5222
+xmpp_stream:112 - 2015-06-30 15:19:26 - got invalid return value from state handler 'wait_for_stream_features', sending end stream...
+xmpp_stream:115 - 2015-06-30 15:19:26 - state handler 'logged_out' returned N;, kindly report this to developers
+sendping:74 - 2015-06-30 15:19:26 - got on_disconnect cb
+jaxl:200 - 2015-06-30 15:20:39 - dns srv lookup for stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 15:20:39 - trying tcp://stahp.ovh:5222
+xmpp_stream:112 - 2015-06-30 15:20:39 - got invalid return value from state handler 'wait_for_stream_features', sending end stream...
+xmpp_stream:115 - 2015-06-30 15:20:39 - state handler 'logged_out' returned N;, kindly report this to developers
+sendping:74 - 2015-06-30 15:20:39 - got on_disconnect cb
+jaxl:200 - 2015-06-30 15:24:58 - dns srv lookup for hero.stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 15:24:58 - trying tcp://hero.stahp.ovh:5222
+sendping:63 - 2015-06-30 15:24:58 - on_auth_success debug
+jaxl_socket_client:175 - 2015-06-30 15:24:58 - socket eof, disconnecting
+sendping:74 - 2015-06-30 15:24:58 - got on_disconnect cb
+jaxl:200 - 2015-06-30 15:29:39 - dns srv lookup for hero.stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 15:29:39 - trying tcp://hero.stahp.ovh:5222
+sendping:62 - 2015-06-30 15:29:40 - on_auth_success SENT
+jaxl_socket_client:175 - 2015-06-30 15:29:40 - socket eof, disconnecting
+sendping:73 - 2015-06-30 15:29:40 - got on_disconnect cb
+jaxl:200 - 2015-06-30 15:33:24 - dns srv lookup for hero.stahp.ovh
+jaxl_socket_client:95 - 2015-06-30 15:33:24 - trying tcp://hero.stahp.ovh:5222
+sendping:62 - 2015-06-30 15:33:24 - on_auth_success SENT
+jaxl_socket_client:175 - 2015-06-30 15:33:24 - socket eof, disconnecting
+sendping:73 - 2015-06-30 15:33:24 - got on_disconnect cb

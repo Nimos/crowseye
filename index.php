@@ -1,5 +1,4 @@
 <?php
-
   #CONFIG DEFAULTS and some other stuff
   $version = "1.3";
   $projectName = "STAHP Track";
