@@ -1,6 +1,6 @@
 <?php
   #CONFIG DEFAULTS and some other stuff
-  $version = "1.3";
+  $version = "1.4";
   $projectName = "STAHP Track";
   $doctype = '<!DOCTYPE html>';
   $charset = "utf-8";

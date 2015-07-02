@@ -57,7 +57,7 @@ function sendping() {
      // Add Callbacks
      $client->add_cb('on_auth_success', function() use ($host, $client, $ping)
      {
-         $client->send_chat_msg('stahp.ovh/announce/online', $ping);  //Hardcoded stahp, as jaxl connect to hero.stahp.
+         $client->send_chat_msg('stahp.ovh/announce/online', $ping);  //Hardcoded stahp, as jaxl connect to hero.stahp. (not $host.'/announce/online')
          $client->send_end_stream();                                  //But the message needs to be sent to stahp.ovh.
          _info("on_auth_success SENT");                               //This is caused by auth function with wordpress
      });                                                              //Can be changed by new combined auth Database

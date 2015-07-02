@@ -23,8 +23,10 @@
                      </div>
                 </div>
             </form>
-            <div id="PingSent" style="display:none;">
-            <p> Ping have been sent. Put something else in here that looks good </p>
+            <div id="pingcontainer" style="background-repeat: no-repeat; height:439px; background-position:center;">
+                <div class="alert alert-info fade in" id="PingSent" style="display:none; top:84px; position:relative; padding-top:22px; padding-bottom:22px;">
+                    <center><strong>Ping have been sent.</strong></center>
+                </div>
             </div>
 
         <?php include "templates/footer.html";?>
@@ -35,6 +37,7 @@
          function showHide() {
            var div = document.getElementById("PingForm");
            var sentdiv = document.getElementById("PingSent");
+           var container = document.getElementById("pingcontainer")
 
            if (div.style.display == 'none') {
              div.style.display = '';
@@ -43,6 +46,7 @@
            else {
              div.style.display = 'none';
              sentdiv.style.display = '';
+             container.style.backgroundImage = 'url("../../static/gfx/dropbear-outline-logo.png")';
            }
          }
         </script>
