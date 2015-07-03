@@ -1,7 +1,7 @@
 <?php
 
 	$ssoEnabled = ($GLOBALS['crest_clientID'] != '' && $GLOBALS['crest_secretKey'] != '');
-		
+
 
 
 	function ssologin () {
@@ -58,7 +58,7 @@
 
 		$context  = stream_context_create($options);
 		$result = file_get_contents($url, false, $context);
-		
+
 		if (!$result) {
 			print "nope";
 			exit;

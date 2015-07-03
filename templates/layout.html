@@ -1,5 +1,5 @@
 <div class="navbar navbar-inverse" role="navigation">
-  
+
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/"><?php  echo $GLOBALS['projectName']; ?></a>
@@ -52,6 +52,9 @@
         <?php if ($charInfo->director): ?>
           <li><a href="/admin/users">Users</a></li>
         <?php endif; ?>
+        <?php if ($charInfo->officer): ?>
+          <li><a href="/admin/sendping">Send Ping</a></li>
+        <?php endif; ?>
         <li class="dropdown">
           <a href="/top">Rankings</a>
         </li>
@@ -59,6 +62,3 @@
     </div>
   </div>
 </div>
-
-
-  
