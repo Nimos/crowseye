@@ -145,8 +145,52 @@
 				return ">5";
 
 			}
-
 			$jumpArray = array(
+				strtolower("Aunsou")			=> "0",
+				strtolower("Reynire") 			=> "1",
+				strtolower("Pain")				=> "2",
+				strtolower("Gare") 				=> "1",
+				strtolower("Aulbres")			=> "2",
+				strtolower("Barleguet") 		=> "3",
+				strtolower("Vestouve")			=> "4",
+				strtolower("Ausmaert") 			=> "4",
+				strtolower("TXW-EI")			=> "5",
+				strtolower("Espigoure") 		=> "5",
+				strtolower("Kenninck") 			=> "5",
+				strtolower("Cumemare") 			=> "1",
+				strtolower("Covryn") 			=> "2",
+				strtolower("Stacmon") 			=> "3",
+				strtolower("Iges")				=> "3",
+				strtolower("Uphallant")			=> "4",
+				strtolower("Aidart") 			=> "4",
+				strtolower("Slays") 			=> "4",
+				strtolower("Avaux") 			=> "5",
+				strtolower("Amoen") 			=> "5",
+				strtolower("Alperaute")	 		=> "1",
+				strtolower("Ostingele")			=> "2",
+				strtolower("Dastryns")			=> "3",
+				strtolower("Harroule")			=> "3",
+				strtolower("MHC-R3")			=> "4",
+				strtolower("F67E-Q")			=> "5",
+				strtolower("2X-PQG")			=> "5",
+				strtolower("6E-578")			=> "5",
+				strtolower("UM-Q7F")			=> "5",
+				strtolower("Agoze")				=> "3",
+				strtolower("Loes")				=> "4",
+				strtolower("Ouelletta")			=> "5",
+				strtolower("Annancale")			=> "4",
+				strtolower("Brarel") 			=> "5",
+				strtolower("Intaki") 			=> "4",
+				strtolower("Vey") 				=> "4",
+				strtolower("Frarie") 			=> "5",
+				strtolower("Pelille") 			=> "3",
+				strtolower("Dour") 				=> "4",
+				strtolower("Grispire") 			=> "4",
+				strtolower("Brellystier") 		=> "5",
+				strtolower("Vivanier") 			=> "5",
+			);
+
+			/*$jumpArray = array(
 
 				strtolower("YZ-LQL")			=> "0",
 				strtolower("Z30S-A") 			=> "1",
@@ -191,7 +235,7 @@
 
 			);
 
-			/*$jumpArray = array(
+			$jumpArray = array(
 
 				strtolower("Defsunun") 		=> "0",
 				strtolower("Shafrak")		=> "1",
