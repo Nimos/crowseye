@@ -1,6 +1,7 @@
 whdata
 .htaccess
 log.error
+jaxl.log
 cache
 db/wh.db
 db/1.0.sql
