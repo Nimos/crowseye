@@ -99,5 +99,39 @@
           array_push($topScoutsThis, $row);
         }
 
+    $query = $db->query('SELECT players._rowid_,name,players.charID,players.corpID,SUM(isk) FROM lootentries JOIN players ON name=players.charName  
+                   GROUP BY name
+                   ORDER BY SUM(isk) DESC, players._rowid_ ASC
+                   LIMIT 10' 
+    );
+    $topEarner = array();
+        while ($row = $query->fetchArray()) {
+          $row[4] = str_split($row[4]);
+          $r = array();
+          $y = 0;
+          for ($x=sizeof($row[4])-1; $x>=0;$x--) {
+            if ($y++==3) {
+              array_unshift($r, ",");
+              $y = 1;
+            }
+            array_unshift($r, $row[4][$x]);
+
+          }
+          $row[4] = implode("", $r);
+          array_push($topEarner, $row);
+        }
+
+    $query = $db->query('SELECT players._rowid_,players.charName,players.charID,players.corpID,COUNT(*) FROM loots JOIN players ON loots.fc=players._rowid_  
+                   GROUP BY loots.fc
+                   ORDER BY COUNT(*) DESC, players._rowid_ ASC
+                   LIMIT 10' 
+    );
+    $topFC = array();
+        while ($row = $query->fetchArray()) {
+          array_push($topFC, $row);
+        }
+
+
+
 		include('templates/top.html');
 	}

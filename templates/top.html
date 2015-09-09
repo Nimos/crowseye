@@ -83,6 +83,46 @@
 				</table>
 			</div>
 		</div>
+		<div class="container">
+			<div class="col-md-6">
+				<h4>Top Earners <small>(All time)</small></h4>
+				<table class="table table-bordered">
+					<thead>
+						<th>Rank</th>
+						<th>Character</th>
+						<th>ISK earned</th>
+					</thead>
+					<tbody>
+						<?php  $c=1; foreach($topEarner as $earner): ?>
+							<tr>
+								<td><?php  echo $c++; ?></td>
+								<td><span class="character_field" name="<?php  echo $earner[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $earner[3];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $earner[2]?>_32.jpg);"><?php  echo $earner[1]; ?></span></td>
+								<td><?php  echo $earner[4]; ?></td>
+							</tr>
+						<?php  endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<h4>Top FCs <small>(All time)</small></h4>
+				<table class="table table-bordered">
+					<thead>
+						<th>Rank</th>
+						<th>System</th>
+						<th>Fleets ran</th>
+					</thead>
+					<tbody>
+						<?php  $c=1; foreach($topFC as $fc): ?>
+							<tr>
+								<td><?php  echo $c++; ?></td>
+								<td><span class="character_field" name="<?php  echo $fc[2]?>" style="background-image: url(http://image.eveonline.com/corporation/<?php echo $fc[3];?>_32.png), url(http://image.eveonline.com/character/<?php  echo $fc[2]?>_32.jpg);"><?php  echo $fc[1]; ?></span></td>
+								<td><?php  echo $fc[4]; ?></td>
+							</tr>
+						<?php  endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
 		<?php include "templates/footer.html";?>
 		<?php include "templates/scripts.html";?>
 	</body>
